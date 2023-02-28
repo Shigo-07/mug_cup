@@ -13,5 +13,11 @@ param = {
 result = requests.get(REQ_URL, param)
 json_result = result.json()
 for item in json_result['Items']:
-    print(item["Item"]["itemName"])
-    print(re.findall("[0-9]*ml", item["Item"]["itemName"]))
+    # print(re.findall("[0-9]*ml", item["Item"]["itemName"]))
+    info = item["Item"]
+    image_url = info["mediumImageUrls"]
+    itemCaption = info["itemCaption"]
+    itemUrl = info["itemUrl"]
+    itemPrice = info["itemPrice"]
+    itemName = info["itemName"]
+    print(itemName,image_url, itemCaption, itemUrl, itemPrice)
