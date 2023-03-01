@@ -215,3 +215,5 @@ ENV/
 
 # Secret_key
 local_settings.py
+
+test/

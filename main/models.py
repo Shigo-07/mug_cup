@@ -7,11 +7,12 @@ class Item(models.Model):
     price = models.IntegerField(verbose_name="価格")
     caption = models.TextField(verbose_name="商品紹介", max_length=1000)
     item_url = models.CharField(verbose_name="商品URL", max_length=500)
-    hash = models.CharField(verbose_name="ハッシュ値", max_length=500)
+    item_code = models.CharField(verbose_name="アイテムコード", max_length=500)
+    image_url = models.CharField(verbose_name="画像URL", max_length=500)
     image = models.ImageField(verbose_name="商品画像", upload_to="item_images/")
 
     def __str__(self):
-        return self.hash
+        return self.name
 
     class Meta:
         db_table = "items"
