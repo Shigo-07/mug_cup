@@ -16,7 +16,7 @@ param = {"format": "json", "keyword": "マグカップ", "applicationId": RAKUTE
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
-        print("start")
+        print("===============start get rakuten ichiba===============")
         request = requests.get(REQ_URL, param)
         if request.status_code != 200:
             print("error:APIから結果を得ることができませんでした。")
@@ -36,8 +36,8 @@ class Command(BaseCommand):
             if image_request.status_code != 200:
                 continue
             image = ContentFile(image_request.content)
-            model_item = Item(**data)
+            # model_item = Item(**data)
+            model_item, created = Item.objects.update_or_create(item_code=data["item_code"], defaults=data)
             model_item.image.save(f'{data["price"]}.jpg', image, save=False)
-            model_item.save()
 
-        print("end")
+        print("===============end get rakuten ichiba===============")

@@ -10,6 +10,7 @@ class Item(models.Model):
     item_code = models.CharField(verbose_name="アイテムコード", max_length=500)
     image_url = models.CharField(verbose_name="画像URL", max_length=500)
     image = models.ImageField(verbose_name="商品画像", upload_to="item_images/")
+    capacity = models.ImageField(verbose_name="容量", default=0)
 
     def __str__(self):
         return self.name
