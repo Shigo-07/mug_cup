@@ -14,7 +14,7 @@ import time
 REQ_URL = "https://app.rakuten.co.jp/services/api/IchibaItem/Search/20220601"
 PATTERN = "[0-9]+\.?[0-9]*ml|[0-9]+\.?[0-9]*cc|[0-9]+\.?[0-9]*l"
 SEARCH_WORDS = ["マグカップ"]
-SEARCH_PAGES = 1
+SEARCH_PAGES = 3
 IMAGE_RESIZE = "_ex=400x400"
 
 
@@ -41,7 +41,7 @@ def fetchRakutenData(keywords: list, pages: int):
     for keyword in keywords:
         for i in range(pages):
             # API制限にかからないよう1眇以上リクエストを待つ
-            time.sleep(2)
+            time.sleep(1.5)
 
             parameter = {"format": "json", "keyword": keyword, "applicationId": RAKUTEN_ID, "page": str(i + 1)}
             request = requests.get(REQ_URL, parameter)
@@ -78,10 +78,13 @@ def fetchRakutenData(keywords: list, pages: int):
                 image_url = urlparse(info["mediumImageUrls"][0]["imageUrl"])._replace(query=IMAGE_RESIZE).geturl()
                 image_request = requests.get(image_url)
                 if image_request.status_code != 200:
+                    print(f"error{data['item_code']}")
                     continue
                 image = ContentFile(image_request.content)
 
                 model_item, created = Item.objects.update_or_create(item_code=data["item_code"], defaults=data)
+                if not created:
+                   model_item.image.delete()
                 model_item.image.save(f'{data["price"]}.jpg', image, save=True)
 
 

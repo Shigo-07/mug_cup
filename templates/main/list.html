@@ -1,14 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-{% for item in items %}
-<p>{{ item.name }}</p>
-<img src="{{ item.image.url }}" alt="">
-{% endfor %}
+{% extends "base.html" %}
+{% block title %}カップ一覧{% endblock%}
 
-</body>
-</html>
+{% block content %}
+<div class="container">
+<div class="list">
+    {% for item in items %}
+    <div class="item">
+        <p>{{ item.name }}</p>
+        {% if item.image %}
+        <img src="{{ item.image.url }}" alt="">
+        {% endif %}
+        <a href="{{ item.item_url }}"><p>商品はこちら</p></a>
+        {% endfor %}
+    </div>
+    <div class="pagination">
+        {% include "parts\pagination.html" %}
+    </div>
+</div>
+</div>
+
+{% endblock %}
