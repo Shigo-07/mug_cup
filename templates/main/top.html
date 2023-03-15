@@ -3,7 +3,7 @@
 {% block title %}トップページ{% endblock%}
 
 {% block content %}
-<div class="main">
+<div class="main wrapper">
     <div class="size">
         <div class="size-head">
             <img src="{% static 'measure.png' %}" alt="" class="size-img">
@@ -12,56 +12,39 @@
             </h2>
         </div>
         <div class="size-selects">
-            <div class="size-select">
-                <h3 class="size-h3">
-                    120～250
-                </h3>
-                <p class="size-select-msg">
-                    喫茶店のように飲むならこのサイズ
-                </p>
-            </div>
-            <div class="size-select">
-                <h3 class="size-h3">
-                    250～400
-                </h3>
-                <p class="size-select-msg">
-                    日常づかいにピッタリな定番サイズ
-                </p>
-            </div>
-            <div class="size-select">
-                <h3 class="size-h3">
-                    400～600
-                </h3>
-                <p class="size-select-msg">
-                    たっぷりと注ぎたいならこのサイズ
-                </p>
-            </div>
-
+            <button name="size-select-1" type="button">
+                150～250<br><span>喫茶店のように飲むならこのサイズ</span>
+            </button>
+            <button name="size-select-2" type="button">
+                250～400<br><span>日常づかいにピッタリな定番サイズ</span>
+            </button>
+            <button name="size-select-3" type="button">
+                400～600<br><span>たっぷりと注ぎたいならこのサイズ</span>
+            </button>
         </div>
     </div>
     <div class="material">
         <div class="material-head">
             <img src="{% static 'material.png' %}" alt="" class="material-img">
-            <h2 class="materail-h2">
+            <h2 class="material-h2">
                 素材を選ぶ
             </h2>
         </div>
         <div class="material-selects">
-            <div class="material-select">
-                <p>マグカップ</p>
-            </div>
-            <div class="material-select">
-                <p>グラス</p>
-            </div>
-            <div class="material-select">
-                <p>ステンレス</p>
-            </div>
-
+            <button name="material-select-1" type="button">
+                マグカップ
+            </button>
+            <button name="material-select-2" type="button">
+                グラス
+            </button>
+            <button name="material-select-3" type="button">
+                ステンレス
+            </button>
         </div>
     </div>
     <div class="search">
         <a href="" class="search-btn">
-            <img src="{% static 'coffe_logo.png' %}" alt="" class="search-img">
+            <img src="{% static 'search.png' %}" alt="" class="search-img">
             検索
         </a>
 

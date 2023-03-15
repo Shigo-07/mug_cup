@@ -1,0 +1,64 @@
+.sort button {
+    font-size: 16px;
+    background: #E6E5E3;
+    border-radius: 5px;
+    padding: 10px 0;
+    font-weight: bold;
+    width: 48%;
+    text-align: center;
+}
+.sort {
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-item img {
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.list-image {
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 48%;
+    max-height: 100%;
+}
+
+.list-info p {
+    font-size: 18px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-info a {
+    font-size: 14px;
+    color: #E6E5E3;
+    background: #545454;
+    border-radius: 5px;
+    padding: 5px 0;
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.list-info {
+    margin: auto auto;
+    width: 45%;
+}
+
+.list-item {
+    display: flex;
+}
+
+.grid {
+    display: grid;
+    gap: 26px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin-top: 6%;
+    margin-bottom: 50px;
+}

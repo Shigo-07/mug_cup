@@ -218,4 +218,4 @@ local_settings.py
 
 test/
 *_.idea
-templates_*
+/templates?/

@@ -1,0 +1,30 @@
+a {
+    font-size: 16px;
+    background: #E6E5E3;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+
+}
+
+.pagelink-num {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.pagelink-num a {
+    padding: 10px 10px;
+}
+
+
+.pagination {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    justify-content: space-between;
+}

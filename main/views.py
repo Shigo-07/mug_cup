@@ -36,7 +36,7 @@ class CupListView(ListView):
     template_name = "main/list.html"
     model = Item
     context_object_name = "items"
-    paginate_by = 10
+    paginate_by = 12
 
     def get_queryset(self):
         """

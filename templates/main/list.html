@@ -2,21 +2,29 @@
 {% block title %}カップ一覧{% endblock%}
 
 {% block content %}
-<div class="container">
-<div class="list">
-    {% for item in items %}
-    <div class="item">
-        <p>{{ item.name }}</p>
-        {% if item.image %}
-        <img src="{{ item.image.url }}" alt="">
-        {% endif %}
-        <a href="{{ item.item_url }}"><p>商品はこちら</p></a>
-        {% endfor %}
+<div class="main wrapper">
+    <div class="sort">
+        <button class="sort-button-price">価格順</button>
+        <button class="sort-button-size">サイズ順</button>
     </div>
+    <div class="list grid">
+        {% for item in items %}
+        <div class="list-item">
+            {% if item.image %}
+            <div class="list-image"><img src="{{ item.image.url }}" alt=""></div>
+            {% endif %}
+            <div class="list-info">
+                <p class="capacity">容量<span>{{ item.capacity }}ml</span></p>
+                <p class="price">値段<span>{{ item.price }}円</span></p>
+                <p class="seller">販売<span>楽天</span></p>
+                <a href="{{ item.item_url }}">商品はこちら</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>{# /list #}
     <div class="pagination">
         {% include "parts\pagination.html" %}
     </div>
-</div>
 </div>
 
 {% endblock %}
