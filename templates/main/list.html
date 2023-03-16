@@ -1,11 +1,12 @@
 {% extends "base.html" %}
+{% load url_filter %}
 {% block title %}カップ一覧{% endblock%}
 
 {% block content %}
 <div class="main wrapper">
     <div class="sort">
-        <button class="sort-button-price">価格順</button>
-        <button class="sort-button-size">サイズ順</button>
+        <a href="{{ urlForPagination | urlFilter }}&sort=price" class="sort-button-price sort-button">価格順</a>
+        <a href="{{ urlForPagination | urlFilter }}&sort=capacity" class="sort-button-capacity sort-button">サイズ順</a>
     </div>
     <div class="list grid">
         {% for item in items %}

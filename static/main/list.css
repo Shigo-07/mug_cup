@@ -1,4 +1,4 @@
-.sort button {
+a.sort-button {
     font-size: 16px;
     background: #E6E5E3;
     border-radius: 5px;
@@ -6,7 +6,9 @@
     font-weight: bold;
     width: 48%;
     text-align: center;
+    display: block;
 }
+
 .sort {
     display: flex;
     justify-content: space-between;

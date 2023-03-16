@@ -13,7 +13,7 @@ import time
 
 REQ_URL = "https://app.rakuten.co.jp/services/api/IchibaItem/Search/20220601"
 PATTERN = "[0-9]+\.?[0-9]*ml|[0-9]+\.?[0-9]*cc|[0-9]+\.?[0-9]*l"
-SEARCH_WORDS = ["マグカップ"]
+SEARCH_WORDS = ["マグカップ", "グラス", "コップ"]
 SEARCH_PAGES = 3
 IMAGE_RESIZE = "_ex=400x400"
 
@@ -84,7 +84,7 @@ def fetchRakutenData(keywords: list, pages: int):
 
                 model_item, created = Item.objects.update_or_create(item_code=data["item_code"], defaults=data)
                 if not created:
-                   model_item.image.delete()
+                    model_item.image.delete()
                 model_item.image.save(f'{data["price"]}.jpg', image, save=True)
 
 

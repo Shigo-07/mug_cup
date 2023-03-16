@@ -1,60 +1,59 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}トップページ{% endblock%}
+{% block title %}トップページ{% endblock %}
 
 {% block content %}
-<div class="main wrapper" id="top">
-    <div class="size">
-        <div class="size-head">
-            <img src="{% static 'measure.png' %}" alt="" class="size-img">
-            <h2 class="size-h2">
-                サイズを選ぶ
-            </h2>
+    <div class="main wrapper" id="top">
+        <div class="size">
+            <div class="size-head">
+                <img src="{% static 'measure.png' %}" alt="" class="size-img">
+                <h2 class="size-h2">
+                    サイズを選ぶ
+                </h2>
+            </div>
+            <div class="size-selects">
+                <button name="size-select-1" type="button" v-on:click="changeSizeBool('small')"
+                        v-bind:class="{activeSize:isSmall}">
+                    150～250<br><span>喫茶店のように飲むならこのサイズ</span>
+                </button>
+                <button name="size-select-2" type="button" v-on:click="changeSizeBool('medium')"
+                        v-bind:class="{activeSize:isMedium}">
+                    250～400<br><span>日常づかいにピッタリな定番サイズ</span>
+                </button>
+                <button name="size-select-3" type="button" v-on:click="changeSizeBool('large')"
+                        v-bind:class="{activeSize:isLarge}">
+                    400～600<br><span>たっぷりと注ぎたいならこのサイズ</span>
+                </button>
+            </div>
         </div>
-        <div class="size-selects">
-            <button name="size-select-1" type="button" v-on:click="changeSizeBool('small')" v-bind:class="{activeSize:isSmall}">
-                150～250<br><span>喫茶店のように飲むならこのサイズ</span>
-            </button>
-            <button name="size-select-2" type="button" v-on:click="changeSizeBool('medium')" v-bind:class="{activeSize:isMedium}">
-                250～400<br><span>日常づかいにピッタリな定番サイズ</span>
-            </button>
-            <button name="size-select-3" type="button" v-on:click="changeSizeBool('large')" v-bind:class="{activeSize:isLarge}">
-                400～600<br><span>たっぷりと注ぎたいならこのサイズ</span>
-            </button>
+        <div class="material">
+            <div class="material-head">
+                <img src="{% static 'material.png' %}" alt="" class="material-img">
+                <h2 class="material-h2">
+                    素材を選ぶ
+                </h2>
+            </div>
+            <div class="material-selects">
+                <button name="material-select-1" type="button" v-on:click="changeMaterialBool('mug')"
+                        v-bind:class="{activeMaterial:isMug}">
+                    マグカップ
+                </button>
+                <button name="material-select-2" type="button" v-on:click="changeMaterialBool('glass')"
+                        v-bind:class="{activeMaterial:isGlass}">
+                    グラス
+                </button>
+                <button name="material-select-3" type="button" v-on:click="changeMaterialBool('stainless')"
+                        v-bind:class="{activeMaterial:isStainless}">
+                    ステンレス
+                </button>
+            </div>
+        </div>
+        <div class="search">
+            <a v-bind:href="[[ searchUrl ]]" class="search-btn" v-bind:class="{isSearch:isSearch}">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                検索
+            </a>
         </div>
     </div>
-    <div class="material">
-        <div class="material-head">
-            <img src="{% static 'material.png' %}" alt="" class="material-img">
-            <h2 class="material-h2">
-                素材を選ぶ
-            </h2>
-        </div>
-        <div class="material-selects">
-            <button name="material-select-1" type="button" v-on:click="changeMaterialBool('mug')" v-bind:class="{activeMaterial:isMug}">
-                マグカップ
-            </button>
-            <button name="material-select-2" type="button" v-on:click="changeMaterialBool('glass')" v-bind:class="{activeMaterial:isGlass}">
-                グラス
-            </button>
-            <button name="material-select-3" type="button" v-on:click="changeMaterialBool('stainless')" v-bind:class="{activeMaterial:isStainless}">
-                ステンレス
-            </button>
-        </div>
-    </div>
-    <div class="search">
-        <a v-bind:href="[[ searchUrl ]]" class="search-btn" v-bind:class="{isSearch:isSearch}">
-            <img src="{% static 'search.png' %}" alt="" class="search-img">
-            検索
-        </a>
-    </div>
-    <button v-on:click="createUrl">test</button>
-
-</div>
-{% include "js.html" %}
-{#    <form method="post">#}
-{#    {% csrf_token %}#}
-{#    {{ form.as_p }}#}
-{#    <input type="submit" value="Send message">#}
-{#    </form>#}
+    {% include "js.html" %}
 {% endblock %}
