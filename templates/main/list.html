@@ -1,31 +1,38 @@
 {% extends "base.html" %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href='{% static "main\list.css" %}'>
+    <link rel="stylesheet" href='{% static "main\pagination.css" %}'>
+{% endblock %}
 {% load url_filter %}
-{% block title %}カップ一覧{% endblock%}
+{% block title %}カップ一覧{% endblock %}
 
 {% block content %}
-<div class="main wrapper">
-    <div class="sort">
-        <a href="{{ urlForPagination | urlFilter }}&sort=price" class="sort-button-price sort-button">価格順</a>
-        <a href="{{ urlForPagination | urlFilter }}&sort=capacity" class="sort-button-capacity sort-button">サイズ順</a>
-    </div>
-    <div class="list grid">
-        {% for item in items %}
-        <div class="list-item">
-            {% if item.image %}
-            <div class="list-image"><img src="{{ item.image.url }}" alt=""></div>
-            {% endif %}
-            <div class="list-info">
-                <p class="capacity">容量<span>{{ item.capacity }}ml</span></p>
-                <p class="price">値段<span>{{ item.price }}円</span></p>
-                <p class="seller">販売<span>楽天</span></p>
-                <a href="{{ item.item_url }}">商品はこちら</a>
-            </div>
+    <div class="main wrapper">
+        <div class="sort">
+            <a href="{{ urlForPagination | urlFilter }}&sort=price" class="sort-button-price sort-button">価格順</a>
+            <a href="{{ urlForPagination | urlFilter }}&sort=capacity"
+               class="sort-button-capacity sort-button">サイズ順</a>
         </div>
-        {% endfor %}
-    </div>{# /list #}
-    <div class="pagination">
-        {% include "parts\pagination.html" %}
+        <div class="list grid">
+            {% for item in items %}
+                <div class="list-item">
+                    {% if item.image %}
+                        <div class="list-image"><img src="{{ item.image.url }}" alt=""></div>
+                    {% endif %}
+                    <div class="list-info">
+                        <p class="list-title">{{ item.name |truncatechars:45 }}</p>
+                        <p class="capacity">容量 <span>{{ item.capacity }}ml</span></p>
+                        <p class="price">値段 <span>{{ item.price }}円</span></p>
+                        <a href="{{ item.item_url }}">商品はこちら</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {# /list #}
+        <div class="pagination">
+            {% include "parts\pagination.html" %}
+        </div>
     </div>
-</div>
 
 {% endblock %}

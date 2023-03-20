@@ -14,7 +14,7 @@ import time
 REQ_URL = "https://app.rakuten.co.jp/services/api/IchibaItem/Search/20220601"
 PATTERN = "[0-9]+\.?[0-9]*ml|[0-9]+\.?[0-9]*cc|[0-9]+\.?[0-9]*l"
 SEARCH_WORDS = ["マグカップ", "グラス", "コップ"]
-SEARCH_PAGES = 3
+SEARCH_PAGES = 50
 IMAGE_RESIZE = "_ex=400x400"
 
 
@@ -78,7 +78,7 @@ def fetchRakutenData(keywords: list, pages: int):
                 image_url = urlparse(info["mediumImageUrls"][0]["imageUrl"])._replace(query=IMAGE_RESIZE).geturl()
                 image_request = requests.get(image_url)
                 if image_request.status_code != 200:
-                    print(f"error{data['item_code']}")
+                    print(f"error:{data['item_code']}")
                     continue
                 image = ContentFile(image_request.content)
 
