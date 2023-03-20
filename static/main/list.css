@@ -45,11 +45,13 @@ a.sort-button {
 }
 
 .capacity,.price {
-    font-weight: bold;
+    font-size: 1.1rem;
 }
 
 .price {
     color: #B12704;
+    font-weight: bold;
+    font-size: 1.3rem;
 }
 
 .list-info a {
@@ -109,6 +111,8 @@ a.sort-button {
 .list-title {
     height: 3rem;
 }
+
+
 
 @media (max-width:767px) {
     .wrapper {
