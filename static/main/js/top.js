@@ -51,11 +51,9 @@ const app1 = new Vue({
                 this.searchWord = "ステンレス"
             }
             if (this.searchWord == "") {
-                console.log(`http://127.0.0.1:8000/cup/list?min=${this.min}&max=${this.max}`)
-                this.searchUrl = `http://127.0.0.1:8000/cup/list?min=${this.min}&max=${this.max}`
+                this.searchUrl = `http://127.0.0.1:8000/cup/list?min_capacity=${this.min}&max_capacity=${this.max}`
             } else {
-                console.log(`http://127.0.0.1:8000/cup/list?min=${this.min}&max=${this.max}&search_word=${this.searchWord}`)
-                this.searchUrl = `http://127.0.0.1:8000/cup/list?min=${this.min}&max=${this.max}&search_word=${this.searchWord}`
+                this.searchUrl = `http://127.0.0.1:8000/cup/list?min_capacity=${this.min}&max_capacity=${this.max}&search_material=${this.searchWord}`
             }
         }
     },
@@ -87,11 +85,9 @@ const app1 = new Vue({
                 this.searchWord = "ステンレス"
             }
             if (this.searchWord == "") {
-                console.log(`http://127.0.0.1:8000/cup/list?min=${this.min}&max=${this.max}`)
-                this.searchUrl = `http://127.0.0.1:8000/cup/list?min=${this.min}&max=${this.max}`
+                this.searchUrl = `http://127.0.0.1:8000/cup/list?min_capacity=${this.min}&max_capacity=${this.max}`
             } else {
-                console.log(`http://127.0.0.1:8000/cup/list?min=${this.min}&max=${this.max}&search_word=${this.searchWord}`)
-                this.searchUrl = `http://127.0.0.1:8000/cup/list?min=${this.min}&max=${this.max}&search_word=${this.searchWord}`
+                this.searchUrl = `http://127.0.0.1:8000/cup/list?min_capacity=${this.min}&max_capacity=${this.max}&search_material=${this.searchWord}`
             }
         },
         changeSizeBool: function (size) {
