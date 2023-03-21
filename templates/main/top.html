@@ -18,15 +18,15 @@
             <div class="size-selects">
                 <button name="size-select" type="button" v-on:click="changeSizeBool('small')"
                         v-bind:class="{activeSize:isSmall}">
-                    150～250<br><span>喫茶店のように飲むならこのサイズ</span>
+                    150～250ml<br><span>喫茶店のように飲むならこのサイズ</span>
                 </button>
                 <button name="size-select" type="button" v-on:click="changeSizeBool('medium')"
                         v-bind:class="{activeSize:isMedium}">
-                    250～400<br><span>日常づかいにピッタリな定番サイズ</span>
+                    250～400ml<br><span>日常づかいにピッタリな定番サイズ</span>
                 </button>
                 <button name="size-select" type="button" v-on:click="changeSizeBool('large')"
                         v-bind:class="{activeSize:isLarge}">
-                    400～600<br><span>たっぷりと注ぎたいならこのサイズ</span>
+                    400～600ml<br><span>たっぷりと注ぎたいならこのサイズ</span>
                 </button>
             </div>
         </div>
@@ -60,4 +60,5 @@
         </div>
     </div>
     {% include "js.html" %}
+    <script src="{% static 'main/js/top.js' %}"></script>
 {% endblock %}

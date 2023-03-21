@@ -6,33 +6,46 @@
     <link rel="stylesheet" href='{% static "main\pagination.css" %}'>
 {% endblock %}
 {% block title %}カップ一覧{% endblock %}
-
+{% block script %}
+    {% include "parts\modal.html" %}
+{% endblock %}
 {% block content %}
-    <div class="main wrapper">
-        <div class="sort">
-            <a href="{{ urlForPagination | urladdprice }}" class="sort-button-price sort-button">価格順</a>
-            <a href="{{ urlForPagination | urladdcapacity }}"
-               class="sort-button-capacity sort-button">サイズ順</a>
-        </div>
-        <div class="list grid">
-            {% for item in items %}
-                <div class="list-item">
-                    {% if item.image %}
-                        <div class="list-image"><img src="{{ item.image.url }}" alt=""></div>
-                    {% endif %}
-                    <div class="list-info">
-                        <p class="list-title">{{ item.name |truncatechars:45 }}</p>
-                        <p class="capacity">容量 <span>{{ item.capacity }}ml</span></p>
-                        <p class="price">値段 <span>{{ item.price }}円</span></p>
-                        <a href="{{ item.item_url }}">商品はこちら</a>
+    <div id="app">
+        <div class="main wrapper">
+            <div class="modal">
+                <i class="fa-solid fa-sliders"></i>
+                <button id="show-modal" @click="showModal = true">絞り込み</button>
+                <!-- use the modal component, pass in the prop -->
+                <modal v-if="showModal" @close="showModal = false">
+                </modal>
+            </div>
+
+            <div class="sort">
+                <a href="{{ urlForPagination | urladdprice }}" class="sort-button-price sort-button">価格順</a>
+                <a href="{{ urlForPagination | urladdcapacity }}"
+                   class="sort-button-capacity sort-button">サイズ順</a>
+            </div>
+            <div class="list grid">
+                {% for item in items %}
+                    <div class="list-item">
+                        {% if item.image %}
+                            <div class="list-image"><img src="{{ item.image.url }}" alt=""></div>
+                        {% endif %}
+                        <div class="list-info">
+                            <p class="list-title">{{ item.name |truncatechars:45 }}</p>
+                            <p class="capacity">容量 <span>{{ item.capacity }}ml</span></p>
+                            <p class="price">値段 <span>{{ item.price }}円</span></p>
+                            <a href="{{ item.item_url }}">商品はこちら</a>
+                        </div>
                     </div>
-                </div>
-            {% endfor %}
-        </div>
-        {# /list #}
-        <div class="pagination">
-            {% include "parts\pagination.html" %}
+                {% endfor %}
+            </div>
+            {# /list #}
+            <div class="pagination">
+                {% include "parts\pagination.html" %}
+            </div>
         </div>
     </div>
-
+    {% include "js.html" %}
+    <script src="{% static 'main/js/list.js' %}"></script>
 {% endblock %}
