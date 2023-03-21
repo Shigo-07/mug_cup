@@ -4,66 +4,87 @@ from .models import Item
 from django.http import Http404
 from .forms import TopForm
 from django.urls import reverse
-from urllib.parse import urlencode
+import urllib.parse
 from django.db.models import Q
 
 
 def createUrlPagination(request):
     '''
-    目的：ページネーション用にページ数だけ削除したURLを返す
-    入力：requestオブジェクト
-    戻り値：min、max、search_wordのパラメータを記載したurl　-> str
+    目的：検索クエリを残しながら、ページネーションのpageだけ抜いたURLを返す
+    入力：request => djangoのrequestオブジェクト
+    出力：urlForPagination => string
     '''
-    min = request.GET.get("min")
-    max = request.GET.get("max")
-    search_word = request.GET.get("search_word")
-    sort = request.GET.get("sort")
-    query_dict = {
-        "min": min,
-        "max": max,
-        "search_word": search_word,
-        "sort": sort
-    }
-    query_dict = {key: value for key, value in query_dict.items() if value}
-    urlForPagination = "".join([reverse("cup:list"), "?", urlencode(query_dict)])
-    return urlForPagination
+    url = request.build_absolute_uri()
+    pr = urllib.parse.urlparse(url)
+    d = urllib.parse.parse_qs(pr.query)
+    d.pop("page", None)
+    return urllib.parse.urlunparse(pr._replace(query=urllib.parse.urlencode(d, doseq=True)))
 
 
-def queryFilterSearch(request):
-    """
-    目的：min,max,search_wordを受け取り、目的のモデルをfilterする
-    入力：GETのmin,max,search_wordを受け取る
-    戻り値：検索結果を反映したqueryオブジェクト
-    補足：
-        min → min以上のItem一覧
-        max → max以下のItem一覧
-        search_word → search_wordが含まれるItem一覧
-    """
-    min = request.GET.get('min')
-    max = request.GET.get("max")
-    search_word = request.GET.get("search_word")
-
-    min = None if not min else int(min)
-    max = None if not max else int(max)
-    search_word = None if not search_word else str(search_word)
-    # サイズの検索
+def conditionFromRange(min: int, max: int, field: str):
     if min and max:
         if min < max:
-            query = Item.objects.filter(capacity__range=(min, max))
+            dict_q = {f"{field}__range": (min, max)}
+            condition = Q(**dict_q)
         else:
             raise Http404("サイズの指定方法に誤りがあります")
     elif min:
-        query = Item.objects.filter(capacity__gte=min)
+        dict_q = {f"{field}__gte": min}
+        condition = Q(**dict_q)
     elif max:
-        query = Item.objects.filter(capacity__lte=max)
+        dict_q = {f"{field}__lte": max}
+        condition = Q(**dict_q)
     else:
-        query = Item.objects.all()
+        condition = None
 
+    return condition
+
+
+def conditionFromRequet(request):
+    """
+    目的：requestのクエリからItemオブジェクトをソート・検索する
+    入力：request => djangoのrequestオブジェクト
+    出力：condition => djangoのQオブジェクト
+    """
+    dict_int_query = {
+        "min_capacity": 0,
+        "max_capacity": 0,
+        "min_price": 0,
+        "max_price": 0,
+    }
+    for key in dict_int_query.keys():
+        dict_int_query[key] = request.GET.get(key)
+        dict_int_query[key] = None if not dict_int_query[key] else int(dict_int_query[key])
+
+    search_material = request.GET.get("search_material")
+    search_material = None if not search_material else str(search_material)
+
+    # サイズの検索
+    condition_size = conditionFromRange(
+        min=dict_int_query["min_capacity"],
+        max=dict_int_query["max_capacity"],
+        field="capacity"
+    )
+    # 価格の検索
+    condition_price = conditionFromRange(
+        min=dict_int_query["min_price"],
+        max=dict_int_query["max_price"],
+        field="price"
+    )
     # 単語検索
-    if search_word:
-        query = query.filter(name__icontains=search_word)
+    if search_material:
+        condition_material = Q(name__icontains=search_material)
+    else:
+        condition_material = None
 
-    return query
+    # 結合用に空のQオブジェクトを作成
+    conditions = Q()
+    condition_all = [condition_size, condition_price, condition_material]
+    for condition in condition_all:
+        if condition != None:
+            conditions &= condition
+
+    return conditions
 
 
 class TopView(TemplateView):
@@ -77,7 +98,9 @@ class CupListView(ListView):
     paginate_by = 12
 
     def get_queryset(self):
-        query = queryFilterSearch(self.request)
+        # URLのクエリパラメータからQオブジェクトを取得
+        Q_conditions = conditionFromRequet(self.request)
+        query = Item.objects.filter(Q_conditions)
         # ソート条件で並び替え
         if self.request.GET.get("sort"):
             sort_key = self.request.GET.get("sort")
