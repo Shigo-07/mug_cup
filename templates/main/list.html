@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 {% load static %}
+{% load url_filter %}
 {% block css %}
     <link rel="stylesheet" href='{% static "main\list.css" %}'>
     <link rel="stylesheet" href='{% static "main\pagination.css" %}'>
 {% endblock %}
-{% load url_filter %}
 {% block title %}カップ一覧{% endblock %}
 
 {% block content %}
     <div class="main wrapper">
         <div class="sort">
-            <a href="{{ urlForPagination | urlFilter }}&sort=price" class="sort-button-price sort-button">価格順</a>
-            <a href="{{ urlForPagination | urlFilter }}&sort=capacity"
+            <a href="{{ urlForPagination | urladdprice }}" class="sort-button-price sort-button">価格順</a>
+            <a href="{{ urlForPagination | urladdcapacity }}"
                class="sort-button-capacity sort-button">サイズ順</a>
         </div>
         <div class="list grid">
