@@ -1,8 +1,4 @@
-/*.wrapper {*/
-/*    max-width: 120ch;*/
-/*    margin: 0 auto;*/
-/*    padding: 0 4%;*/
-/*}*/
+@charset "UTF-8";
 .wrapper {
     width: 70ch;
     margin-left: auto;

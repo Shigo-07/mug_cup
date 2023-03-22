@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .pagination a {
     font-size: 16px;
     background: #E6E5E3;
@@ -23,9 +24,8 @@
 .pagination {
     display: flex;
     align-items: center;
-    width: 100%;
-    max-width: 700px;
-    margin: 10px auto;
+    width: 95%;
+    max-width: 60ch;
+    margin: 1.5rem auto;
     justify-content: space-between;
-
 }

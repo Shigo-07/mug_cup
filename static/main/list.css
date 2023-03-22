@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .wrapper {
     max-width: 140ch;
     width: 130ch;
@@ -8,16 +9,16 @@
     justify-content: flex-start;
 }
 
-a.sort-button {
-    font-size: 1rem;
-    background: #E6E5E3;
-    border-radius: 5px;
-    padding: 10px 0;
-    font-weight: bold;
-    width: 45%;
-    text-align: center;
-    display: block;
-}
+/*a.sort-button {*/
+/*    font-size: 1rem;*/
+/*    background: #E6E5E3;*/
+/*    border-radius: 5px;*/
+/*    padding: 10px 0;*/
+/*    font-weight: bold;*/
+/*    width: 45%;*/
+/*    text-align: center;*/
+/*    display: block;*/
+/*}*/
 
 
 .sort {
@@ -111,6 +112,7 @@ a.sort-button {
 .list-title {
     height: 3rem;
 }
+
 
 
 @media (max-width: 767px) {
@@ -209,6 +211,32 @@ a.sort-button {
     width: 70%;
     text-align: center;
     display: block;
+}
+
+.modal {
+    border-bottom: 2px solid #E6E5E3;
+    padding-bottom: 1rem;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modal-button  {
+    font-size: 1.3rem;
+    background: #E6E5E3;
+    width: 50%;
+    text-align: center;
+    padding: 0.5rem 0;
+    font-weight: bold;
+    border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modal-button i {
+    font-size: 0.9em;
+    margin-right: 0.5rem;
 }
 
 

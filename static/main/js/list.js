@@ -30,7 +30,7 @@ Vue.component("modal", {
             selectedSort: 0,
             queryParams: {},
             queryUrl: "",
-        };
+        }
     },
     computed: {
         watchObject() {

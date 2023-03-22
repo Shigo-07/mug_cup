@@ -4,6 +4,7 @@
 {% block css %}
     <link rel="stylesheet" href='{% static "main\list.css" %}'>
     <link rel="stylesheet" href='{% static "main\pagination.css" %}'>
+    <link rel="stylesheet" href='{% static "main\modal.css" %}'>
 {% endblock %}
 {% block title %}カップ一覧{% endblock %}
 {% block script %}
@@ -13,18 +14,17 @@
     <div id="app">
         <div class="main wrapper">
             <div class="modal">
-                <i class="fa-solid fa-sliders"></i>
-                <button id="show-modal" @click="showModal = true">絞り込み</button>
+                <button id="show-modal" @click="showModal = true" class="modal-button"><i class="fa-solid fa-sliders"></i>絞り込み</button>
                 <!-- use the modal component, pass in the prop -->
                 <modal v-if="showModal" @close="showModal = false">
                 </modal>
             </div>
 
-            <div class="sort">
-                <a href="{{ urlForPagination | urladdprice }}" class="sort-button-price sort-button">価格順</a>
-                <a href="{{ urlForPagination | urladdcapacity }}"
-                   class="sort-button-capacity sort-button">サイズ順</a>
-            </div>
+{#            <div class="sort">#}
+{#                <a href="{{ urlForPagination | urladdprice }}" class="sort-button-price sort-button">価格順</a>#}
+{#                <a href="{{ urlForPagination | urladdcapacity }}"#}
+{#                   class="sort-button-capacity sort-button">サイズ順</a>#}
+{#            </div>#}
             <div class="list grid">
                 {% for item in items %}
                     <div class="list-item">
@@ -41,9 +41,7 @@
                 {% endfor %}
             </div>
             {# /list #}
-            <div class="pagination">
-                {% include "parts\pagination.html" %}
-            </div>
+            {% include "parts\pagination.html" %}
         </div>
     </div>
     {% include "js.html" %}
