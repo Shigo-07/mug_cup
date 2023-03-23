@@ -74,10 +74,6 @@
 const modal = {
     template: "#modal-template",
     delimiters: ['[[', ']]'],
-    // props: ["defaultPrice", "defaultCapacity", "defaultMaterial", "defaultSort"],
-    // props: {
-    //     default_min_price: Number,
-    // },
     data() {
         return {
             selectsPrice: [
@@ -111,19 +107,40 @@ const modal = {
     },
     created() {
         const searchParams = new URLSearchParams(window.location.search);
-        // ここでselectsPriceを使い、forで繰り返しながら一致する値を見つける？見つけたらidをセット
-        // const defaultCapacity = this.defaultCapacity
-        // const defaultMaterial = this.defaultMaterial
-        // const defaultSort = this.defaultSort
-        // this.selectedPrice = defaultPrice
-        // this.selectedCapacity = defaultCapacity
-        // this.selectedMaterial = defaultMaterial
-        // this.selectedSort = defaultSort
-        console.log(searchParams.get("min_price") )
-        console.log(searchParams.get("max_price") )
-        console.log(searchParams.has("min_price") )
-
-
+        if (searchParams.has("min_price") && searchParams.has("max_price")) {
+            const min_query_price = searchParams.get("min_price");
+            const max_query_price = searchParams.get("max_price");
+            for (const elem of this.selectsPrice) {
+                if (min_query_price == elem["min_price"] && max_query_price == elem["max_price"]) {
+                    this.selectedPrice = elem["id"];
+                }
+            }
+        }
+        if (searchParams.has("min_capacity") && searchParams.has("max_capacity")) {
+            const min_query_capacity = searchParams.get("min_capacity");
+            const max_query_capacity = searchParams.get("max_capacity");
+            for (const elem of this.selectsCapacity) {
+                if (min_query_capacity == elem["min_capacity"] && max_query_capacity == elem["max_capacity"]) {
+                    this.selectedCapacity = elem["id"];
+                }
+            }
+        }
+        if (searchParams.has("search_material")) {
+            const query_material = searchParams.get("search_material");
+            for (const elem of this.selectsMaterial) {
+                if (query_material == elem["label"]) {
+                    this.selectedMaterial = elem["id"];
+                }
+            }
+        }
+        if (searchParams.has("sort")) {
+            const query_sort = searchParams.get("sort");
+            for (const elem of this.selectsSort) {
+                if (query_sort == elem["sort"]) {
+                    this.selectedSort = elem["id"];
+                }
+            }
+        }
     },
     computed: {
         watchObject() {
@@ -172,22 +189,34 @@ const app = new Vue({
     data() {
         return {
             showModal: false,
-            // default_min_price: 0,
-            // default_max_price: 0,
-            // Material: 0,
-            // Sort: 0,
+            min_price: null,
+            max_price: null,
+            min_capacity: null,
+            max_capacity: null,
+            search_material: null,
+            sorts: [
+                {id: 1, sort: "capacity", label: "容量順"},
+                {id: 2, sort: "price", label: "値段順"},
+            ],
+            sort: null,
         };
     },
     created() {
-        // this.Price = 2
-        // this.defaultCapacity = 2
-        // this.defaultMaterial = 2
-        // this.defaultSort = 2
-        // const searchParams = new URLSearchParams(window.location.search)
-        // if (searchParams.has("min_price") && searchParams.has("max_price")) {
-        //     this.default_min_price = searchParams.get("min_price")
-        //     this.default_max_price = searchParams.get("max_price")
-        // }
+        const searchParams = new URLSearchParams(window.location.search);
+        this.min_price = searchParams.get("min_price")
+        this.max_price = searchParams.get("max_price")
+        this.min_capacity = searchParams.get("min_capacity")
+        this.max_capacity = searchParams.get("max_capacity")
+        this.search_material = searchParams.get("search_material")
+        const query_sort = searchParams.get("sort")
+        if (searchParams.has("sort")) {
+            for (const element of this.sorts) {
+                if (element["sort"] == query_sort) {
+                    this.sort = element["label"]
+                }
+            }
+        }
+
     },
     components: {
         "modal": modal

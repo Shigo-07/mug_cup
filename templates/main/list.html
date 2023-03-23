@@ -16,19 +16,29 @@
             <div class="modal">
                 <button id="show-modal" @click="showModal = true" class="modal-button"><i class="fa-solid fa-sliders"></i>絞り込み</button>
                 <!-- use the modal component, pass in the prop -->
-{#                <modal v-if="showModal" @close="showModal = false"#}
-{#                       v-bind:default_min_price="default_min_price">#}
-{#                </modal>#}
                 <modal v-if="showModal" @close="showModal = false">
                 </modal>
 
             </div>
-
-{#            <div class="sort">#}
-{#                <a href="{{ urlForPagination | urladdprice }}" class="sort-button-price sort-button">価格順</a>#}
-{#                <a href="{{ urlForPagination | urladdcapacity }}"#}
-{#                   class="sort-button-capacity sort-button">サイズ順</a>#}
-{#            </div>#}
+            <div class="condition" v-clock>
+                <div class="condition-caption">
+                    <p>絞り込み条件：</p>
+                </div>
+                <div class="condition-list">
+                    <div class="condition-price" v-if="min_price !== null | max_price !== null">
+                        <p>[[ min_price ]]～[[ max_price ]]円</p>
+                    </div>
+                    <div class="condition-capacity" v-if="min_capacity !== null | max_capacity !== null">
+                        <p>[[ min_capacity ]]～[[ max_capacity ]]ml</p>
+                    </div>
+                    <div class="condition-material" v-if="search_material !== null">
+                        <p>[[ search_material ]]</p>
+                    </div>
+                    <div class="condition-sort" v-if="sort !== null">
+                        <p>[[ sort ]]</p>
+                    </div>
+                </div>
+            </div>
             <div class="list grid">
                 {% for item in items %}
                     <div class="list-item">
