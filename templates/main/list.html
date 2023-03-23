@@ -16,8 +16,12 @@
             <div class="modal">
                 <button id="show-modal" @click="showModal = true" class="modal-button"><i class="fa-solid fa-sliders"></i>絞り込み</button>
                 <!-- use the modal component, pass in the prop -->
+{#                <modal v-if="showModal" @close="showModal = false"#}
+{#                       v-bind:default_min_price="default_min_price">#}
+{#                </modal>#}
                 <modal v-if="showModal" @close="showModal = false">
                 </modal>
+
             </div>
 
 {#            <div class="sort">#}
