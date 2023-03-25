@@ -85,3 +85,28 @@ class TestUrlQuery(TestCase):
             response = self.client.get(request_url)
             self.assertEqual(response.status_code, 404)
 
+    def test_404_for_large_number(self):
+        '''minとmaxが10,000,000以上であれば404エラーを返す'''
+        query_dict = {"min_price": 10000000, "max_price": 10000000, "min_capacity": 10000000, "max_capacity": 10000000}
+        for key, value in query_dict.items():
+            request_url = "".join([self.list_url, "?", urlencode({key: value})])
+            response = self.client.get(request_url)
+            self.assertEqual(response.status_code, 404)
+
+        query_dict = {"min_price": 9999999, "max_price": 9999999, "min_capacity": 9999999, "max_capacity": 9999999}
+        for key, value in query_dict.items():
+            request_url = "".join([self.list_url, "?", urlencode({key: value})])
+            response = self.client.get(request_url)
+            self.assertEqual(response.status_code, 200)
+
+    def test_404_for_large_search_material(self):
+        '''search_materialが240文字を超えたとき404エラーをかえす'''
+        query_dict = {"search_material":f"{'a' * 240}"}
+        request_url = "".join([self.list_url, "?", urlencode(query_dict)])
+        response = self.client.get(request_url)
+        self.assertEqual(response.status_code, 404)
+
+        query_dict = {"search_material":f"{'a' * 239}"}
+        request_url = "".join([self.list_url, "?", urlencode(query_dict)])
+        response = self.client.get(request_url)
+        self.assertEqual(response.status_code, 200)
