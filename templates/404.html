@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-  <h1>このページは表示できません</h1>
-  <p>アクセスできないURLか、ページが削除されています</p>
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}404エラー{% endblock %}
+{% block css %}<link rel="stylesheet" href='{% static "main\404.css" %}'>{% endblock %}
+{% block content %}
+    <div class="error-404">
+        <h1>このページは利用できません。</h1>
+        <p>アクセスできないURLか、ページが削除されています。</p>
+        <a href="{% url 'cup:top' %}">トップページへ戻る</a>
+    </div>
+{% endblock %}

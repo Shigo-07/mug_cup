@@ -113,3 +113,7 @@ class CupListView(ListView):
         extra = {"urlForPagination": urlForPagination}
         context.update(extra)
         return context
+
+
+class TestView(TemplateView):
+    template_name = "404.html"
