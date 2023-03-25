@@ -1,0 +1,198 @@
+[
+  {
+    "model": "main.item",
+    "pk": 1,
+    "fields": {
+      "name": "マグカップ1",
+      "price": 500,
+      "caption": "キャプション、caption",
+      "item_url": "http://test.local",
+      "item_code": "test_code",
+      "image_url": "http://test.local/image",
+      "image": "/media/test_for_dummy.png",
+      "capacity": 200
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 2,
+    "fields": {
+      "name": "マグカップ2",
+      "price": 500,
+      "caption": "キャプション、caption",
+      "item_url": "http://test.local",
+      "item_code": "test_code",
+      "image_url": "http://test.local/image",
+      "image": "/media/test_for_dummy.png",
+      "capacity": 200
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 3,
+    "fields": {
+      "name": "マグカップ3",
+      "price": 500,
+      "caption": "キャプション、caption",
+      "item_url": "http://test.local",
+      "item_code": "test_code",
+      "image_url": "http://test.local/image",
+      "image": "/media/test_for_dummy.png",
+      "capacity": 200
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 4,
+    "fields": {
+      "name": "マグカップ4",
+      "price": 2000,
+      "caption": "キャプション、caption",
+      "item_url": "http://test.local",
+      "item_code": "test_code",
+      "image_url": "http://test.local/image",
+      "image": "/media/test_for_dummy.png",
+      "capacity": 200
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 5,
+    "fields": {
+      "name": "マグカップ5",
+      "price": 2000,
+      "caption": "キャプション、caption",
+      "item_url": "http://test.local",
+      "item_code": "test_code",
+      "image_url": "http://test.local/image",
+      "image": "/media/test_for_dummy.png",
+      "capacity": 300
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 6,
+    "fields": {
+      "name": "マグカップ6",
+      "price": 2000,
+      "caption": "キャプション、caption",
+      "item_url": "http://test.local",
+      "item_code": "test_code",
+      "image_url": "http://test.local/image",
+      "image": "/media/test_for_dummy.png",
+      "capacity": 300
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 7,
+    "fields": {
+      "name": "マグカップ7",
+      "price": 7500,
+      "caption": "キャプション、caption",
+      "item_url": "http://test.local",
+      "item_code": "test_code",
+      "image_url": "http://test.local/image",
+      "image": "/media/test_for_dummy.png",
+      "capacity": 300
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 8,
+    "fields": {
+      "name": "マグカップ8",
+      "price": 7500,
+      "caption": "キャプション、caption",
+      "item_url": "http://test.local",
+      "item_code": "test_code",
+      "image_url": "http://test.local/image",
+      "image": "/media/test_for_dummy.png",
+      "capacity": 300
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 9,
+    "fields": {
+      "name": "マグカップ9",
+      "price": 20000,
+      "caption": "キャプション、caption",
+      "item_url": "http://test.local",
+      "item_code": "test_code",
+      "image_url": "http://test.local/image",
+      "image": "/media/test_for_dummy.png",
+      "capacity": 500
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 10,
+    "fields": {
+      "name": "マグカップ10",
+      "price": 20000,
+      "caption": "キャプション、caption",
+      "item_url": "http://test.local",
+      "item_code": "test_code",
+      "image_url": "http://test.local/image",
+      "image": "/media/test_for_dummy.png",
+      "capacity": 500
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 11,
+    "fields": {
+      "name": "マグカップ11",
+      "price": 31000,
+      "caption": "キャプション、caption",
+      "item_url": "http://test.local",
+      "item_code": "test_code",
+      "image_url": "http://test.local/image",
+      "image": "/media/test_for_dummy.png",
+      "capacity": 500
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 12,
+    "fields": {
+      "name": "マグカップ12",
+      "price": 31000,
+      "caption": "キャプション、caption",
+      "item_url": "http://test.local",
+      "item_code": "test_code",
+      "image_url": "http://test.local/image",
+      "image": "/media/test_for_dummy.png",
+      "capacity": 500
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 13,
+    "fields": {
+      "name": "グラス1",
+      "price": 500,
+      "caption": "キャプション、caption",
+      "item_url": "http://test.local",
+      "item_code": "test_code",
+      "image_url": "http://test.local/image",
+      "image": "/media/test_for_dummy.png",
+      "capacity": 200
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 14,
+    "fields": {
+      "name": "ステンレス1",
+      "price": 500,
+      "caption": "キャプション、caption",
+      "item_url": "http://test.local",
+      "item_code": "test_code",
+      "image_url": "http://test.local/image",
+      "image": "/media/test_for_dummy.png",
+      "capacity": 200
+    }
+  }
+]

@@ -87,6 +87,31 @@ def conditionFromRequet(request):
     return conditions
 
 
+def validationURLQuery(request):
+    '''
+    目的：URLクエリのValidationを実行し、不正なクエリは404エラーを返す
+    チェック項目：
+    ・int型のクエリは正の整数か
+    .sortに禁止文字が使われていないか
+    入力:request -> djangoのrequestオブジェクト
+    出力：なし
+    '''
+
+    list_int_query = ["min_capacity", "max_capacity", "min_price", "max_price"]
+    # 整数か
+    for query in list_int_query:
+        parameter = request.GET.get(query)
+        if not (parameter is None):
+            if not parameter.isdigit():
+                raise Http404("URLの指定方法に誤りがあります")
+
+    # sortが禁止文字か
+    permission_sort_word = ["capacity", "price"]
+    parameter = request.GET.get("sort")
+    if not (parameter is None):
+        if not parameter in permission_sort_word:
+            raise Http404("URLの指定方法に誤りがあります")
+
 class TopView(TemplateView):
     template_name = "main/top.html"
 
@@ -96,6 +121,11 @@ class CupListView(ListView):
     model = Item
     context_object_name = "items"
     paginate_by = 12
+
+    def get(self, request, *args, **kwargs):
+        '''URLクエリのValidationを実施'''
+        validationURLQuery(self.request)
+        return super().get(self, request, *args, **kwargs)
 
     def get_queryset(self):
         # URLのクエリパラメータからQオブジェクトを取得
