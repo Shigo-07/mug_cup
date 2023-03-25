@@ -10,6 +10,10 @@
 
 }
 
+a.current-page{
+    background: #feedcb;
+}
+
 .pagelink-num {
     display: flex;
     justify-content: space-around;
@@ -29,3 +33,4 @@
     margin: 1.5rem auto;
     justify-content: space-between;
 }
+
