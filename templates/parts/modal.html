@@ -1,0 +1,72 @@
+<script type="text/x-template" id="modal-template">
+    <transition name="modal">
+        <div class="modal-mask">
+            <div class="modal-wrapper">
+                <div class="modal-container">
+                    <div class="modal-exit">
+                        <button class="modal-default-button" @click="$emit('close')">
+                            ×
+                        </button>
+                    </div>
+                    <div class="modal-title">
+                        <p>絞り込み</p>
+                    </div>
+                    <div class="modal-price">
+                        <slot name="price">
+                            <p>値段</p>
+                        </slot>
+                        <div class="select">
+                            <select v-model="selectedPrice">
+                                <option v-for="item in selectsPrice" :value="item.id" :key="item.id">
+                                    [[ item.label ]]
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modal-capacity">
+                        <slot name="capacity">
+                            <p>容量</p>
+                        </slot>
+                        <div class="select">
+                            <select v-model="selectedCapacity">
+                                <option v-for="item in selectsCapacity" :value="item.id" :key="item.id">
+                                    [[ item.label ]]
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-material">
+                        <slot name="order">
+                            <p>検索したい素材</p>
+                        </slot>
+                        <div class="select">
+                            <select v-model="selectedMaterial">
+                                <option v-for="item in selectsMaterial" :value="item.id" :key="item.id">
+                                    [[ item.label ]]
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-order">
+                        <slot name="order">
+                            <p>並び替え</p>
+                        </slot>
+                        <div class="select">
+                            <select v-model="selectedSort">
+                                <option v-for="item in selectsSort" :value="item.id" :key="item.id">
+                                    [[ item.label ]]
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-search">
+                        <slot name="search">
+                            <a v-bind:href="queryUrl">絞り込む</a>
+                        </slot>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </transition>
+</script>
