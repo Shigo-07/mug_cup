@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-#from config.local_settings import SECRET_KEY
+from config.local_settings import SECRET_KEY
 from django.conf import settings
 from dotenv import load_dotenv
 import os

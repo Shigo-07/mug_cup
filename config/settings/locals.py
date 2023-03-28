@@ -13,8 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 from config.local_settings import SECRET_KEY
 from django.conf import settings
-from dotenv import load_dotenv
-import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -22,9 +21,6 @@ PARENT_DIR = Path(__file__).resolve().parent.parent.parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
-env_path = PARENT_DIR / "auth/.env"
-load_dotenv(env_path)
-SECRET_KEY = os.environ.get("secret_key")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 # DEBUG = False
@@ -32,7 +28,9 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 # Application definition
-settings.configure()
+# settings.configure()
+if not settings.configured:
+    settings.configure()
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",

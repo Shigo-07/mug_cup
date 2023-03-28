@@ -12,10 +12,12 @@
 </head>
 <body>
 <div class="container">
-    {% include "parts/head.html" %}
+{#    {% include "parts/head.html" %}#}
+    {% include "head.html" %}
     {% block content %}
     {% endblock %}
-    {% include "parts/footer.html" %}
+{#    {% include "parts/footer.html" %}#}
+    {% include "footer.html" %}
 </div>
 </body>
 </html>
