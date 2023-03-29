@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 from urllib.parse import urlparse
 from main.models import Item
-from config.local_settings import RAKUTEN_ID
+from django.conf import settings
 # from main.models import Item
 from django.core.files.images import ImageFile
 from django.core.files.base import ContentFile
@@ -16,7 +16,7 @@ PATTERN = "[0-9]+\.?[0-9]*ml|[0-9]+\.?[0-9]*cc|[0-9]+\.?[0-9]*l"
 SEARCH_WORDS = ["マグカップ", "グラス", "コップ"]
 SEARCH_PAGES = 50
 IMAGE_RESIZE = "_ex=400x400"
-
+RAKUTEN_ID = settings.RAKUTEN_ID
 
 def wordsToCapacity(words: str):
     # 半角かつ小文字へ変換
