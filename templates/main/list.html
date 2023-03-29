@@ -49,7 +49,7 @@
                             <p class="list-title">{{ item.name |truncatechars:45 }}</p>
                             <p class="capacity">容量 <span>{{ item.capacity }}ml</span></p>
                             <p class="price">値段 <span>{{ item.price }}円</span></p>
-                            <a href="{{ item.item_url }}">商品はこちら</a>
+                            <a href="{{ item.item_url }}" target="_blank" rel="noopener noreferrer">商品はこちら</a>
                         </div>
                     </div>
                 {% endfor %}
