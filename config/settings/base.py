@@ -15,6 +15,7 @@ from django.conf import settings
 from dotenv import load_dotenv
 import os
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 PARENT_DIR = Path(__file__).resolve().parent.parent.parent.parent
@@ -24,6 +25,7 @@ PARENT_DIR = Path(__file__).resolve().parent.parent.parent.parent
 env_path = PARENT_DIR / "auth/.env"
 load_dotenv(env_path)
 SECRET_KEY = os.environ.get("secret_key")
+RAKUTEN_ID = os.environ.get("RAKUTEN_ID")
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 DEBUG = False
