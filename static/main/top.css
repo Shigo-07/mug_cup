@@ -26,13 +26,19 @@
 }
 /* caption */
 .caption > p {
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-align: center;
     font-weight: bold;
     line-height: 1.7rem;
 }
 .caption > p > span {
     font-size: 1.5rem;
+}
+
+.caption-sub p {
+    font-size: 0.8rem;
+    text-align: center;
+    font-weight: bold;
 }
 
 /* head */
@@ -136,106 +142,3 @@ a.isSearch {
     color: #fff;
 }
 
-/*.size-head {*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*}*/
-
-/*.size-img {*/
-/*    height: 24px;*/
-/*    width: auto;*/
-/*}*/
-
-/*h2 {*/
-/*    font-weight:bold;*/
-/*    font-size: 20px;*/
-/*    margin-left: 10px;*/
-/*}*/
-
-/*!* size *!*/
-/*.size-selects button {*/
-/*    font-size: 18px;*/
-/*    font-weight: bold;*/
-/*    background-color: #E6E5E3;*/
-/*    width: 95%;*/
-/*    height: 50px;*/
-/*    margin-top: 10px;*/
-/*    border-radius: 5px;*/
-/*    padding: 5px;*/
-/*    transition:all 0.2s ease*/
-/*}*/
-/*.size-selects button span{*/
-/*    font-size: 12px;*/
-/*    font-weight: bold;*/
-/*    margin-left: 20px;*/
-/*}*/
-
-/*.size-selects {*/
-/*    margin: 15px 0;*/
-/*}*/
-
-/*button.activeSize {*/
-/*    background-color: #feedcb;*/
-/*}*/
-
-/*!* material *!*/
-/*.material {*/
-/*    margin-top: 20px;*/
-/*}*/
-/*.material-head {*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*}*/
-/*.material-img {*/
-/*    height: 24px;*/
-/*    width: auto;*/
-/*    transform: translateY(-2.5px);*/
-/*}*/
-
-/*.material-selects {*/
-/*    display: flex;*/
-/*    flex-wrap: wrap;*/
-/*    width: 100%;*/
-/*    margin: 15px auto;*/
-/*}*/
-/*.material-selects button {*/
-/*    background-color: #E6E5E3;*/
-/*    width: 48%;*/
-/*    margin-top: 5px;*/
-/*    height: 25px;*/
-/*    border-radius: 5px;*/
-/*    font-weight: bold;*/
-/*    font-size: 14px;*/
-/*    text-align: center;*/
-/*    line-height: 25px;*/
-/*    transition:all 0.2s ease*/
-/*}*/
-
-/*button.activeMaterial {*/
-/*    background-color: #feedcb;*/
-/*}*/
-
-/*.search-img {*/
-/*    height: 24px;*/
-/*    width: auto;*/
-/*    transform: translateY(-2.5px);*/
-/*    margin-right: 10px;*/
-/*}*/
-
-/*a.search-btn {*/
-/*    background-color: #545454;*/
-/*    padding: 15px;*/
-/*    display: block;*/
-/*    width: 90%;*/
-/*    margin: 40px auto;*/
-/*    border-radius: 5px;*/
-/*    color: #767676;*/
-/*    font-weight: bold;*/
-/*    font-size: 20px;*/
-/*    text-align: center;*/
-/*    transition:all 0.5s ease*/
-/*}*/
-
-/*a.isSearch {*/
-/*    color: #fff;*/
-/*}*/

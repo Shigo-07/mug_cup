@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get("secret_key")
 # DEBUG = True
 DEBUG = False
 
-ALLOWED_HOSTS = ["133.18.199.37"]
+ALLOWED_HOSTS = ["133.18.199.37", "www.mug-cup.tokyo"]
 
 # Application definition
 settings.configure()
@@ -116,7 +116,7 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 MEDIA_URL = '/media/'
-#MEDIA_ROOT = Path.joinpath(BASE_DIR, "media")
+# MEDIA_ROOT = Path.joinpath(BASE_DIR, "media")
 STATIC_ROOT = PARENT_DIR / 'site/public/static'
 MEDIA_ROOT = PARENT_DIR / 'site/public/media'
 
