@@ -14,9 +14,11 @@ import time
 REQ_URL = "https://app.rakuten.co.jp/services/api/IchibaItem/Search/20220601"
 PATTERN = "[0-9]+\.?[0-9]*ml|[0-9]+\.?[0-9]*cc|[0-9]+\.?[0-9]*l"
 SEARCH_WORDS = ["マグカップ", "グラス", "コップ"]
-SEARCH_PAGES = 50
+SEARCH_PAGES = 1
 IMAGE_RESIZE = "_ex=400x400"
 RAKUTEN_ID = settings.RAKUTEN_ID
+AFFILIATE_ID = settings.AFFILIATE_ID
+
 
 def wordsToCapacity(words: str):
     # 半角かつ小文字へ変換
@@ -43,7 +45,8 @@ def fetchRakutenData(keywords: list, pages: int):
             # API制限にかからないよう1眇以上リクエストを待つ
             time.sleep(1.5)
 
-            parameter = {"format": "json", "keyword": keyword, "applicationId": RAKUTEN_ID, "page": str(i + 1)}
+            parameter = {"format": "json", "keyword": keyword, "applicationId": RAKUTEN_ID, "page": str(i + 1),
+                         "affiliateId": AFFILIATE_ID}
             request = requests.get(REQ_URL, parameter)
 
             if request.status_code != 200:
@@ -69,7 +72,7 @@ def fetchRakutenData(keywords: list, pages: int):
                 data["name"] = info["itemName"]
                 data["price"] = info["itemPrice"]
                 data["caption"] = info["itemCaption"]
-                data["item_url"] = info["itemUrl"]
+                data["item_url"] = info["affiliateUrl"]
                 data["item_code"] = info["itemCode"]
                 data["image_url"] = json.dumps(info["mediumImageUrls"], ensure_ascii=False)
                 data["capacity"] = capacity

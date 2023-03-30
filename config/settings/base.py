@@ -25,7 +25,7 @@ env_path = PARENT_DIR / "auth/.env"
 load_dotenv(env_path)
 SECRET_KEY = os.environ.get("secret_key")
 RAKUTEN_ID = os.environ.get("RAKUTEN_ID")
-
+AFFILIATE_ID = os.environ.get("AFFILIATE_ID")
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 DEBUG = False
@@ -79,12 +79,6 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
