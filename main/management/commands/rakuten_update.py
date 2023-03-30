@@ -1,11 +1,11 @@
 from django.core.management.base import BaseCommand
 from main.models import Item
 import time
-from config.local_settings import RAKUTEN_ID
 import requests
+from django.conf import settings
 
 REQ_URL = "https://app.rakuten.co.jp/services/api/IchibaItem/Search/20220601"
-
+RAKUTEN_ID = settings.RAKUTEN_ID
 
 def RemoveNotExistItem(model):
     items = model.objects.all()
