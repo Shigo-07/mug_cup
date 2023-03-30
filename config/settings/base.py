@@ -25,7 +25,7 @@ env_path = PARENT_DIR / "auth/.env"
 load_dotenv(env_path)
 SECRET_KEY = os.environ.get("secret_key")
 RAKUTEN_ID = os.environ.get("RAKUTEN_ID")
-
+AFFILIATE_ID = os.environ.get("AFFILIATE_ID")
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 DEBUG = False
