@@ -110,3 +110,4 @@ class TestUrlQuery(TestCase):
         request_url = "".join([self.list_url, "?", urlencode(query_dict)])
         response = self.client.get(request_url)
         self.assertEqual(response.status_code, 200)
+
