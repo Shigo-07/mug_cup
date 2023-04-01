@@ -24,7 +24,7 @@
         {% endfor  %}
     </div>
     {% if page_obj.has_next %}
-        {% if request.get_full_path == "/cup/list/" or "/cup/list/?page" in request.get_full_path %}E
+        {% if request.get_full_path == "/cup/list/" or "/cup/list/?page" in request.get_full_path %}
             <a href="{{ urlForPagination }}?page={{ page_obj.next_page_number }}" class="page-link">NEXT</a>
         {% else %}
             <a href="{{ urlForPagination }}&page={{ page_obj.next_page_number }}" class="page-link">NEXT</a>
