@@ -87,6 +87,7 @@ def fetchRakutenData(keywords: list, pages: int):
 
                 model_item, created = Item.objects.update_or_create(item_code=data["item_code"], defaults=data)
                 if not created:
+                    # 既に作成済みであれば既存の画像を削除する
                     model_item.image.delete()
                 model_item.image.save(f'{data["price"]}.jpg', image, save=True)
 

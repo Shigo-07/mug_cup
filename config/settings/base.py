@@ -85,8 +85,8 @@ DATABASES = {
         "NAME": os.environ.get('DB_NAME'),
         "USER": os.environ.get('DB_USER'),
         "PASSWORD": os.environ.get('DB_PASSWD'),
-        "HOST":"localhost",
-        "PORT":"5432",
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
 
@@ -128,3 +128,34 @@ MEDIA_ROOT = PARENT_DIR / 'site/public/media'
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
+
+# logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'production': {
+            'format': '{asctime} <{process:d},{thread:d}> [{levelname}] {pathname}:{lineno:d} {message} ',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'formatter': 'production',
+            'filename': '/var/log/django/app.log',
+        },
+    },
+    'root': {
+        'handlers': ['file'],
+        'level': 'INFO',
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'WARNING',
+            'propagate': False,
+        },
+    },
+}

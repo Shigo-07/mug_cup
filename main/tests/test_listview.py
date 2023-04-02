@@ -41,6 +41,7 @@ class TestItemSetup(TestCase):
             self.assertEqual(len(item), value)
 
 
+
 class TestUrlQuery(TestCase):
     '''
     CupListViewに対して以下の観点のテストケースを作成する
