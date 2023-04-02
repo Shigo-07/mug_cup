@@ -2,8 +2,6 @@ from django.core.management.base import BaseCommand
 from urllib.parse import urlparse
 from main.models import Item
 from django.conf import settings
-# from main.models import Item
-from django.core.files.images import ImageFile
 from django.core.files.base import ContentFile
 import unicodedata
 import re
@@ -19,7 +17,6 @@ SEARCH_PAGES = 1
 IMAGE_RESIZE = "_ex=400x400"
 RAKUTEN_ID = settings.RAKUTEN_ID
 AFFILIATE_ID = settings.AFFILIATE_ID
-
 
 @dataclass
 class RakutenItem:
@@ -65,6 +62,13 @@ class RakutenItem:
         }
 
     def _wordsToCapacity(self, words: str):
+        '''
+        目的：正規表現を使って、下記の処理を行う
+        ・文字列からml、l、ccの単位が付いている数値を取り出す
+        ・int型のml単位の値を返す
+        入力：words -> str
+        出力：list_number[0] -> int or None
+        '''
         # 正規表現で検査できるよう、半角かつ小文字へ変換
         # words = unicodedata.normalize('NFKC', words).lower()
         list_capacity = re.findall(PATTERN, words)
