@@ -1,15 +1,26 @@
 {% extends "base.html" %}
 {% load static %}
+<!-- meta -->
+{% block meta %}
+<link rel="canonical" href="https://www.mug-cup.tokyo/cup/"/>
+<meta property="og:title" content="コップサイズサーチ | マグカップやコップをサイズ・容量・大きさから探そう"/>
+<meta property="og:description" content="マグカップやコップをサイズ・容量・大きさから検索することができます。大容量のコップやコーヒーにぴったりなマグカップを見つけたいときに向いています。"/>
+<meta content="マグカップやコップをサイズ・容量・大きさから検索することができます。大容量のコップやコーヒーにぴったりなマグカップを見つけたいときに向いています。" name="description">
+<meta property="og:url" content="https://www.mug-cup.tokyo/cup/"/>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="マグカップサイズサーチ" />
+<meta property="og:locale" content="ja_JP"  />
+{% endblock %}
 {% block css %}<link rel="stylesheet" href='{% static "main\top.css" %}'>{% endblock %}
-{% block title %}トップページ{% endblock %}
+{% block title %}コップサイズサーチ | マグカップやコップをサイズ・容量・大きさから探そう{% endblock %}
 
 {% block content %}
     <div class="main wrapper" id="top">
         <div class="caption">
-            <p><span>サイズ</span>と<span>素材</span>を選んで<br>コップを検索しよう</p>
+            <p><span>サイズ</span>と<span>素材</span>を選んで<br>コップ・マグカップを検索しよう</p>
             <br>
             <div class="caption-sub">
-            <p>サイトを横断して探すことができます</p>
+            <p>サイトを横断して<br>マグカップやコップを探すことができます</p>
             </div>
         </div>
         <div class="size">
