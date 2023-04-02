@@ -10,6 +10,7 @@ import re
 import requests
 import json
 import time
+from dataclasses import dataclass
 
 REQ_URL = "https://app.rakuten.co.jp/services/api/IchibaItem/Search/20220601"
 PATTERN = "[0-9]+\.?[0-9]*ml|[0-9]+\.?[0-9]*cc|[0-9]+\.?[0-9]*l"
@@ -20,23 +21,66 @@ RAKUTEN_ID = settings.RAKUTEN_ID
 AFFILIATE_ID = settings.AFFILIATE_ID
 
 
-def wordsToCapacity(words: str):
-    # 半角かつ小文字へ変換
-    words = unicodedata.normalize('NFKC', words).lower()
-    list_capacity = re.findall(PATTERN, words)
-    list_number = []
-    for capacity in list_capacity:
-        if "ml" in capacity or "cc" in capacity:
-            number = float(re.search("[0-9]+\.?[0-9]*", capacity).group(0))
-            list_number.append(int(number))
-        elif "l" in capacity:
-            number = float(re.search("[0-9]+\.?[0-9]*", capacity).group(0)) * 1000
+@dataclass
+class RakutenItem:
+    itemName: str
+    itemPrice: int
+    itemCaption: str
+    affiliateUrl: str
+    itemCode: str
+    imageUrlRow: str
 
-            list_number.append(int(number))
-    if len(set(list_number)) == 1:
-        return list_number[0]
-    else:
-        return None
+    @property
+    def capacity(self):
+        '''nameもしくはcaptionから容量を算出する'''
+        # 正規表現で検査できるよう、半角かつ小文字へ変換
+        words = unicodedata.normalize('NFKC', self.itemName).lower()
+        # タイトルから容量を取得する
+        capacity = self._wordsToCapacity(words)
+
+        if not capacity:  # タイトルで取得できない場合は説明欄から取得
+            words = unicodedata.normalize('NFKC', self.itemCaption).lower()
+            capacity = self._wordsToCapacity(words)
+            if not capacity:  # 容量情報がない場合はモデルへ登録できないため、登録できないデータとしてNoneを返す
+                return None
+
+        return capacity
+
+    @property
+    def imageUrl(self):
+        ''' 取得する画像がデフォルトだと小さいため、URLのサイズクエリを書き換えする'''
+        imageUrls = json.loads(self.imageUrlRow)
+        return urlparse(imageUrls[0]["imageUrl"])._replace(query=IMAGE_RESIZE).geturl()
+
+    @property
+    def dictInfo(self):
+        return {
+            "name": self.itemName,
+            "price": self.itemPrice,
+            "caption": self.itemCaption,
+            "item_url": self.affiliateUrl,
+            "item_code": self.itemCode,
+            "image_url": self.imageUrlRow,
+            "capacity": self.capacity,
+        }
+
+    def _wordsToCapacity(self, words: str):
+        # 正規表現で検査できるよう、半角かつ小文字へ変換
+        # words = unicodedata.normalize('NFKC', words).lower()
+        list_capacity = re.findall(PATTERN, words)
+        list_number = []
+        for capacity in list_capacity:
+            if "ml" in capacity or "cc" in capacity:
+                number = float(re.search("[0-9]+\.?[0-9]*", capacity).group(0))
+                list_number.append(int(number))
+            elif "l" in capacity:
+                number = float(re.search("[0-9]+\.?[0-9]*", capacity).group(0)) * 1000
+                list_number.append(int(number))
+
+        if len(set(list_number)) == 1:
+            return list_number[0]
+        else:
+            return None
 
 
 def fetchRakutenData(keywords: list, pages: int):
@@ -57,40 +101,26 @@ def fetchRakutenData(keywords: list, pages: int):
             json_data = request.json()
             for item in json_data["Items"]:
                 info = item["Item"]
-                # 半角かつ小文字へ変換する
-                words = unicodedata.normalize('NFKC', info["itemName"]).lower()
-                # タイトルから容量を取得する
-                capacity = wordsToCapacity(words)
-                if not capacity:  # タイトルで取得できない場合は説明欄から取得
-                    words = unicodedata.normalize('NFKC', info["itemCaption"]).lower()
-                    capacity = wordsToCapacity(words)
-                    if not capacity:  # 容量情報がない場合、登録しない
-                        continue
+                rakutenItem = RakutenItem(itemName=info["itemName"], itemPrice=info["itemPrice"],
+                                          itemCaption=info["itemCaption"], affiliateUrl=info["affiliateUrl"],
+                                          itemCode=info["itemCode"],
+                                          imageUrlRow=json.dumps(info["mediumImageUrls"], ensure_ascii=False))
+                if rakutenItem.capacity is None:
+                    # 容量を取得できない場合は、データベースへ登録しない
+                    continue
 
-                data = {}
-
-                data["name"] = info["itemName"]
-                data["price"] = info["itemPrice"]
-                data["caption"] = info["itemCaption"]
-                data["item_url"] = info["affiliateUrl"]
-                data["item_code"] = info["itemCode"]
-                data["image_url"] = json.dumps(info["mediumImageUrls"], ensure_ascii=False)
-                data["capacity"] = capacity
-
-                # 取得する画像サイズのクエリを変更する
-                image_url = urlparse(info["mediumImageUrls"][0]["imageUrl"])._replace(query=IMAGE_RESIZE).geturl()
-                image_request = requests.get(image_url)
+                image_request = requests.get(rakutenItem.imageUrl)
                 if image_request.status_code != 200:
-                    print(f"error:{data['item_code']}")
+                    print(f"error:{rakutenItem.itemCode}")
                     continue
                 image = ContentFile(image_request.content)
 
-                model_item, created = Item.objects.update_or_create(item_code=data["item_code"], defaults=data)
+                model_item, created = Item.objects.update_or_create(item_code=rakutenItem.itemCode,
+                                                                    defaults=rakutenItem.dictInfo)
                 if not created:
                     # 既に作成済みであれば既存の画像を削除する
                     model_item.image.delete()
-                model_item.image.save(f'{data["price"]}.jpg', image, save=True)
-
+                model_item.image.save(f'{rakutenItem.itemPrice}.jpg', image, save=True)
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
