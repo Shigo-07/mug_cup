@@ -33,7 +33,7 @@ class RakutenItem:
     @property
     def capacity(self):
         '''nameもしくはcaptionから容量を算出する'''
-        # 半角かつ小文字へ変換する
+        # 正規表現で検査できるよう、半角かつ小文字へ変換
         words = unicodedata.normalize('NFKC', self.itemName).lower()
         # タイトルから容量を取得する
         capacity = self._wordsToCapacity(words)
@@ -48,6 +48,7 @@ class RakutenItem:
 
     @property
     def imageUrl(self):
+        ''' 取得する画像がデフォルトだと小さいため、URLのサイズクエリを書き換えする'''
         imageUrls = json.loads(self.imageUrlRow)
         return urlparse(imageUrls[0]["imageUrl"])._replace(query=IMAGE_RESIZE).geturl()
 
@@ -64,8 +65,8 @@ class RakutenItem:
         }
 
     def _wordsToCapacity(self, words: str):
-        # 半角かつ小文字へ変換
-        words = unicodedata.normalize('NFKC', words).lower()
+        # 正規表現で検査できるよう、半角かつ小文字へ変換
+        # words = unicodedata.normalize('NFKC', words).lower()
         list_capacity = re.findall(PATTERN, words)
         list_number = []
         for capacity in list_capacity:
@@ -74,8 +75,8 @@ class RakutenItem:
                 list_number.append(int(number))
             elif "l" in capacity:
                 number = float(re.search("[0-9]+\.?[0-9]*", capacity).group(0)) * 1000
-
                 list_number.append(int(number))
+
         if len(set(list_number)) == 1:
             return list_number[0]
         else:
