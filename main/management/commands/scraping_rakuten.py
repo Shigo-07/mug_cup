@@ -18,6 +18,7 @@ IMAGE_RESIZE = "_ex=400x400"
 RAKUTEN_ID = settings.RAKUTEN_ID
 AFFILIATE_ID = settings.AFFILIATE_ID
 
+
 @dataclass
 class RakutenItem:
     itemName: str
@@ -26,6 +27,7 @@ class RakutenItem:
     affiliateUrl: str
     itemCode: str
     imageUrlRow: str
+    seller: str
 
     @property
     def capacity(self):
@@ -59,6 +61,7 @@ class RakutenItem:
             "item_code": self.itemCode,
             "image_url": self.imageUrlRow,
             "capacity": self.capacity,
+            "seller": self.seller,
         }
 
     def _wordsToCapacity(self, words: str):
@@ -108,7 +111,8 @@ def fetchRakutenData(keywords: list, pages: int):
                 rakutenItem = RakutenItem(itemName=info["itemName"], itemPrice=info["itemPrice"],
                                           itemCaption=info["itemCaption"], affiliateUrl=info["affiliateUrl"],
                                           itemCode=info["itemCode"],
-                                          imageUrlRow=json.dumps(info["mediumImageUrls"], ensure_ascii=False))
+                                          imageUrlRow=json.dumps(info["mediumImageUrls"], ensure_ascii=False),
+                                          seller="rakuten")
                 if rakutenItem.capacity is None:
                     # 容量を取得できない場合は、データベースへ登録しない
                     continue
@@ -125,6 +129,7 @@ def fetchRakutenData(keywords: list, pages: int):
                     # 既に作成済みであれば既存の画像を削除する
                     model_item.image.delete()
                 model_item.image.save(f'{rakutenItem.itemPrice}.jpg', image, save=True)
+
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
