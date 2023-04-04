@@ -1,4 +1,4 @@
-let minSize = {min: 150, max: 250}
+let minSize = {min: 140, max: 250}
 let mediumSize = {min: 250, max: 400}
 let largeSize = {min: 400, max: 600}
 

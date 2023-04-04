@@ -1,4 +1,10 @@
 from django.db import models
+from django.core.exceptions import ValidationError
+
+
+def validate_value(value):
+    if value not in ['rakuten', 'yahoo']:
+        raise ValidationError(f"{value} is not a valid value.")
 
 
 # Create your models here.
@@ -11,6 +17,7 @@ class Item(models.Model):
     image_url = models.CharField(verbose_name="画像URL", max_length=500)
     image = models.ImageField(verbose_name="商品画像", upload_to="item_images/")
     capacity = models.IntegerField(verbose_name="容量", default=0)
+    seller = models.CharField(verbose_name="販売サイト", max_length=100, validators=[validate_value])
 
     def __str__(self):
         return self.name
