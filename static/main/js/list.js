@@ -44,8 +44,8 @@ const modal = {
             }
         } else if (searchParams.has("min_price")) {
             const min_query_price = searchParams.get("min_price");
-            if (min_query_price == this.selectsPrice["min_price"]) {
-                this.selectedPrice = elem["id"];
+            if (min_query_price == this.selectsPrice[4]["min_price"]) {
+                this.selectedPrice = this.selectsPrice[4]["id"];
             }
         }
         if (searchParams.has("min_capacity") && searchParams.has("max_capacity")) {
