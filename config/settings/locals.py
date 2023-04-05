@@ -24,6 +24,8 @@ load_dotenv(env_path)
 SECRET_KEY = os.environ.get("secret_key")
 RAKUTEN_ID = os.environ.get("RAKUTEN_ID")
 AFFILIATE_ID = os.environ.get("AFFILIATE_ID")
+AFFILIATE_ID_YAHOO = os.environ.get("AFFILIATE_ID_YAHOO")
+YAHOO_ID = os.environ.get("YAHOO_ID")
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
