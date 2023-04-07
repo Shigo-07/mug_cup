@@ -1,10 +1,11 @@
 $bottom: 4rem;
 
-.owner {
+.privacy {
   line-height: 1.5rem;
   max-width: 90%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 2rem;
 
   @media screen and (min-width: 768px) {
     max-width: 60%;

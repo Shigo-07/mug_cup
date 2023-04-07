@@ -4,12 +4,25 @@
   margin-left: auto;
   margin-right: auto;
 }
+@media screen and (min-width: 768px) {
+  .about {
+    max-width: 60%;
+  }
+}
 .about h2 {
   text-align: center;
   font-size: 2rem;
   font-weight: 900;
   margin-bottom: 4rem;
   margin-top: 2rem;
+}
+.about .about-image {
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+.about .about-image img {
+  border-radius: 0.5rem;
 }
 .about .text {
   margin-bottom: 4rem;
