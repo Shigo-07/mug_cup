@@ -1,35 +1,36 @@
-.owner {
+.privacy {
   line-height: 1.5rem;
   max-width: 90%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 2rem;
 }
 @media screen and (min-width: 768px) {
-  .owner {
+  .privacy {
     max-width: 60%;
   }
 }
-.owner h2 {
+.privacy h2 {
   text-align: center;
   font-size: 2rem;
   font-weight: 900;
   margin-bottom: 4rem;
   margin-top: 2rem;
 }
-.owner h3 {
+.privacy h3 {
   font-size: 1.5rem;
   font-weight: bold;
   margin-top: 2rem;
   margin-bottom: 0.8rem;
 }
-.owner a {
+.privacy a {
   color: #1da1f2;
 }
-.owner ul {
+.privacy ul {
   margin-left: 1.5rem;
   margin-top: 1rem;
 }
-.owner li {
+.privacy li {
   list-style: disc;
 }
 

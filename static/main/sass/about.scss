@@ -6,12 +6,26 @@ $bottom: 4rem;
   margin-left: auto;
   margin-right: auto;
 
+  @media screen and (min-width: 768px) {
+    max-width: 60%;
+  }
   h2 {
     text-align: center;
     font-size: 2rem;
     font-weight: 900;
     margin-bottom: $bottom;
     margin-top: 2rem;
+  }
+
+  .about-image {
+
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+
+    img {
+      border-radius: 0.5rem;
+    }
   }
 
   .text {
