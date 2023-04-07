@@ -1,3 +1,11 @@
 <footer>
-    <p><small>&copy; 2023 Kato</small></p>
+    <div class="footer">
+        <div class="link">
+{#            <a href="#" class="owner-link">利用規約</a>#}
+            <a href="{% url 'cup:privacy' %}" class="owner-link">プライバシーポリシー</a>
+            <a href="{% url 'cup:about' %}" class="about-link">当サイトについて</a>
+            <a href="{% url 'cup:owner' %}" class="owner-link">運営者・お問い合わせ先</a>
+        </div>
+        <p><small>&copy; 2023 Kato</small></p>
+    </div>
 </footer>

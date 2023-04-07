@@ -1,0 +1,51 @@
+$bottom: 4rem;
+
+.owner {
+  line-height: 1.5rem;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: $bottom;
+    margin-top: 2rem;
+  }
+
+  .text {
+    margin-bottom: $bottom;
+
+    & > * + * {
+      margin-top: 1rem;
+    }
+
+    .dialogue {
+      font-weight: 900;
+      line-height: 1.5rem;
+    }
+  }
+
+  .owner {
+    margin-bottom: $bottom;
+    text-align: center;
+
+    & > * + * {
+      margin-top: 1rem;
+    }
+
+    .twitter {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+
+    i {
+      color: #1da1f2;
+      margin-left: 0.5rem;
+      font-size: 2rem;
+    }
+  }
+}

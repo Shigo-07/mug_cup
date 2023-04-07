@@ -1,0 +1,30 @@
+$bottom: 4rem;
+
+.about {
+  line-height: 1.5rem;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: $bottom;
+    margin-top: 2rem;
+  }
+
+  .text {
+    margin-bottom: $bottom;
+
+    & > * + * {
+      margin-top: 1rem;
+    }
+
+    .dialogue {
+      font-weight: 900;
+      line-height: 1.5rem;
+    }
+  }
+
+}

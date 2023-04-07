@@ -1,0 +1,25 @@
+.about {
+  line-height: 1.5rem;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.about h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 4rem;
+  margin-top: 2rem;
+}
+.about .text {
+  margin-bottom: 4rem;
+}
+.about .text > * + * {
+  margin-top: 1rem;
+}
+.about .text .dialogue {
+  font-weight: 900;
+  line-height: 1.5rem;
+}
+
+/*# sourceMappingURL=about.css.map */

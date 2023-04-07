@@ -1,0 +1,40 @@
+$bottom: 4rem;
+
+.owner {
+  line-height: 1.5rem;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: 768px) {
+    max-width: 60%;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: $bottom;
+    margin-top: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  a {
+    color: #1da1f2;
+  }
+
+  ul {
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+  }
+  li {
+    list-style: disc;
+  }
+
+}

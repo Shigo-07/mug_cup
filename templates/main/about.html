@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+<!-- meta -->
+{% block meta %}
+<link rel="canonical" href="https://www.mug-cup.tokyo/cup/"/>
+<meta property="og:title" content="コップサイズサーチ > 当サイトについて | マグカップやコップをサイズ・容量・大きさから探そう"/>
+<meta property="og:description" content="マグカップやコップをサイズ・容量・大きさから検索することができます。大容量のコップやコーヒーにぴったりなマグカップを見つけたいときに向いています。"/>
+<meta content="マグカップやコップをサイズ・容量・大きさから検索することができます。大容量のコップやコーヒーにぴったりなマグカップを見つけたいときに向いています。" name="description">
+<meta property="og:url" content="https://www.mug-cup.tokyo/cup/about/"/>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="マグカップサイズサーチ" />
+<meta property="og:locale" content="ja_JP"  />
+<meta name="robots" content="noindex,nofollow">
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href='{% static "main\list.css" %}'>
+    <link rel="stylesheet" href="{% static 'main\sass\about.css' %}">
+{% endblock %}
+{% block title %}コップサイズサーチ > 当サイトについて | マグカップやコップをサイズ・容量・大きさから探そう{% endblock %}
+{% block content %}
+    <div class="main wrapper">
+        <div class="about">
+            <h2>当サイトについて</h2>
+            <div class="text">
+                <p>
+                    コップサイズサーチは、容量やサイズから<br>コップやマグカップを検索できるサービスです。
+                </p>
+                <div class="dialogue">
+                    <p>「珈琲や紅茶に丁度いいカップを探したい」</p>
+                    <p>「いやいや、大きいマグカップを見つけたい」</p>
+                    <p>「日常遣いできるサイズでおしゃれなものはないかな」</p>
+                </div>
+                <p>
+                    そんなコップやマグカップを探している方に向けたサービスです。
+                </p>
+                <p>容量やサイズを確認しながら、あなたにぴったりなマグカップを見つけるお手伝いをします。</p>
+                <p>ぜひコップサイズサーチを使って、お気に入りのカップを見つけてください。</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/d6ddb93240.js" crossorigin="anonymous"></script>
+{% endblock %}

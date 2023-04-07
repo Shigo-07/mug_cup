@@ -7,10 +7,10 @@
     flex-direction: column;
     justify-content: flex-start;
     margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 5rem;
 }
 
-@media (max-width:767px) {
+@media (max-width: 767px) {
     .wrapper {
         width: 95%;
     }
@@ -24,6 +24,7 @@
 .wrapper > * + * {
     margin-top: 1.5rem;
 }
+
 /* caption */
 .caption > p {
     font-size: 1rem;
@@ -31,6 +32,7 @@
     font-weight: bold;
     line-height: 1.7rem;
 }
+
 .caption > p > span {
     font-size: 1.5rem;
 }
@@ -46,6 +48,7 @@
     display: flex;
     align-items: center;
 }
+
 h2 {
     font-weight: bold;
     font-size: 1.5rem;
@@ -79,9 +82,10 @@ h2 {
     height: 3.5rem;
     border-radius: 5px;
     padding-left: 1rem;
-    transition:all 0.2s ease
+    transition: all 0.2s ease
 }
-.size-selects > button span{
+
+.size-selects > button span {
     font-size: 1rem;
     font-weight: bold;
     margin-left: 20px;
@@ -114,7 +118,7 @@ button.activeSize {
     height: 2.5rem;
     border-radius: 5px;
     padding-left: 1rem;
-    transition:all 0.2s ease
+    transition: all 0.2s ease
 
 }
 
@@ -132,7 +136,7 @@ a.search-btn {
     font-size: 2rem;
     height: 4rem;
     text-align: center;
-    transition:all 0.5s ease;
+    transition: all 0.5s ease;
     margin-left: auto;
     margin-right: auto;
     padding: 1rem;
