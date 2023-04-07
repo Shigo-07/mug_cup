@@ -1,0 +1,43 @@
+.owner {
+  line-height: 1.5rem;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.owner h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 4rem;
+  margin-top: 2rem;
+}
+.owner .text {
+  margin-bottom: 4rem;
+}
+.owner .text > * + * {
+  margin-top: 1rem;
+}
+.owner .text .dialogue {
+  font-weight: 900;
+  line-height: 1.5rem;
+}
+.owner .owner {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+.owner .owner > * + * {
+  margin-top: 1rem;
+}
+.owner .owner .twitter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+.owner .owner i {
+  color: #1da1f2;
+  margin-left: 0.5rem;
+  font-size: 2rem;
+}
+
+/*# sourceMappingURL=owner.css.map */

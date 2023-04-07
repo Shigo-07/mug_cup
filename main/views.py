@@ -156,5 +156,14 @@ class CupListView(ListView):
         return context
 
 
-class TestView(TemplateView):
-    template_name = "404.html"
+# class TestView(TemplateView):
+#     template_name = "404.html"
+
+class AboutView(TemplateView):
+    template_name = "main/about.html"
+
+class OwnerView(TemplateView):
+    template_name = "main/owner.html"
+
+class PrivacyView(TemplateView):
+    template_name = "main/privacy.html"

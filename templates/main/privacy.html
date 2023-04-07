@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+<!-- meta -->
+{% block meta %}
+<link rel="canonical" href="https://www.mug-cup.tokyo/cup/"/>
+<meta property="og:title" content="コップサイズサーチ > プライバシーポリシー | マグカップやコップをサイズ・容量・大きさから探そう"/>
+<meta property="og:description" content="マグカップやコップをサイズ・容量・大きさから検索することができます。大容量のコップやコーヒーにぴったりなマグカップを見つけたいときに向いています。"/>
+<meta content="マグカップやコップをサイズ・容量・大きさから検索することができます。大容量のコップやコーヒーにぴったりなマグカップを見つけたいときに向いています。" name="description">
+<meta property="og:url" content="https://www.mug-cup.tokyo/cup/owner/"/>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="マグカップサイズサーチ" />
+<meta property="og:locale" content="ja_JP"  />
+<meta name="robots" content="noindex,nofollow">
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href='{% static "main\list.css" %}'>
+    <link rel="stylesheet" href="{% static 'main\sass\privacy.css' %}">
+{% endblock %}
+{% block title %}コップサイズサーチ > プライバシーポリシー | マグカップやコップをサイズ・容量・大きさから探そう{% endblock %}
+{% block content %}
+    <div class="main wrapper">
+        <div class="owner">
+            <h2>プライバシーポリシー</h2>
+            <div class="text">
+                <div class="terms">
+                    当社が提供するサービス（以下「本サービス」といいます。）における、本サービスを利用する皆様（以下「ユーザー」といいます。）の個人情報の取扱いについて、以下のとおりプライバシーポリシーを定め、その保護に万全を尽くします。
+                </div>
+                <div class="terms">
+                    <h3>Cookie</h3>
+                    <p>
+                        当サイトではログイン状態の確認、サイトの分析と改善のためにCookieを利用しています。
+                        トラフィックデータ収集にはGoogle Analyticsが使用されています。
+                        ユーザーはブラウザの設定によりCookieの送信を拒否することができます。
+                        データは匿名で収集されており、個人を特定するものではありません。
+                        この機能はCookieを無効にすることで収集を拒否することが出来ますので、お使いのブラウザの設定をご確認ください。
+                        この規約に関して、<a href="https://marketingplatform.google.com/about/analytics/terms/jp/" target="_blank">ここをクリック</a>詳しくはしてください。</p>
+                </div>
+                <div class="terms">
+                    <h3>個人情報の開示について</h3>
+                    <p>
+                        取得した情報は、次のような場合を除いて第三者に開示することはありません。
+                    </p>
+                    <ul>
+                        <li>ユーザー本人の同意がある場合</li>
+                        <li>開示すべき法的義務を負っている場合</li>
+                        <li>不正利用があった場合</li>
+                        <li>運営の権利や財産を保護するために必要と、運営が合理的に判断した場合</li>
+                    </ul>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/d6ddb93240.js" crossorigin="anonymous"></script>
+{% endblock %}
