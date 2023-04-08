@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+<!-- meta -->
+{% block meta %}
+<link rel="canonical" href="https://www.mug-cup.tokyo/cup/"/>
+<meta property="og:title" content="コップサイズサーチ > {{ article.title }} | マグカップやコップをサイズ・容量・大きさから探そう"/>
+<meta property="og:description" content="マグカップやコップをサイズ・容量・大きさから検索することができます。大容量のコップやコーヒーにぴったりなマグカップを見つけたいときに向いています。"/>
+<meta content="マグカップやコップをサイズ・容量・大きさから検索することができます。大容量のコップやコーヒーにぴったりなマグカップを見つけたいときに向いています。" name="description">
+<meta property="og:url" content="https://www.mug-cup.tokyo/cup/owner/"/>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="マグカップサイズサーチ" />
+<meta property="og:locale" content="ja_JP"  />
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'main\sass\article.css' %}">
+{% endblock %}
+{% block title %}コップサイズサーチ > {{ article.title }} | マグカップやコップをサイズ・容量・大きさから探そう{% endblock %}
+{% block content %}
+    <div class="main wrapper">
+        <div class="article">
+            {{ article.markdown_to_html | safe }}
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/d6ddb93240.js" crossorigin="anonymous"></script>
+{% endblock %}

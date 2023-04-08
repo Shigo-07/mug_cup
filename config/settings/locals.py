@@ -48,7 +48,10 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # third party
     "django_extensions",
+    "mdeditor",
+    # app
     "main",
+    "article",
 ]
 
 MIDDLEWARE = [
@@ -129,3 +132,17 @@ MEDIA_ROOT = Path.joinpath(BASE_DIR, "media")
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
+
+# mdeditor
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+MDEDITOR_CONFIGS = {
+    'default': {
+        'language': 'en',
+        'toolbar': ["undo", "redo", "image", "|",
+                    "bold", "quote", "|",
+                    "h1", "h2", "h3", "h5", "h6", "|",
+                    "list-ul", "list-ol", "hr", "|",
+                    "||", "preview", "watch", "fullscreen"],
+        'lineWrapping': True
+    }
+}

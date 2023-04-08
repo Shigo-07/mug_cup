@@ -1,0 +1,57 @@
+@charset "UTF-8";
+.article {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 3rem;
+}
+@media screen and (min-width: 768px) {
+  .article {
+    max-width: 50%;
+  }
+  .article p {
+    font-size: 1.2rem;
+  }
+}
+.article h2 {
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+.article h3 {
+  position: relative;
+  font-weight: bold;
+  background: #E6E5E3;
+  line-height: 1.4;
+  padding: 0.5em 0.5em 0.5em 1.8em;
+  margin-bottom: 3em;
+  border-radius: 0.2rem;
+}
+.article h3::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f14a";
+  font-weight: 900;
+  position: absolute;
+  left: 0.5em; /*左端からのアイコンまでの距離*/
+}
+.article p {
+  line-height: 1.7;
+  margin-bottom: 3em;
+  margin-right: auto;
+  width: 97%;
+}
+.article img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (min-width: 768px) {
+  .article img {
+    max-width: 60%;
+  }
+}
+
+/*# sourceMappingURL=article.css.map */

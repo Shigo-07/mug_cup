@@ -11,7 +11,10 @@
 <meta property="og:site_name" content="マグカップサイズサーチ" />
 <meta property="og:locale" content="ja_JP"  />
 {% endblock %}
-{% block css %}<link rel="stylesheet" href='{% static "main\top.css" %}'>{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href='{% static "main\top.css" %}'>
+    <link rel="stylesheet" href="{% static 'main/swiper/swiper-bundle.min.css' %}">
+{% endblock %}
 {% block title %}コップサイズサーチ | マグカップやコップをサイズ・容量・大きさから探そう{% endblock %}
 
 {% block content %}
@@ -22,6 +25,34 @@
             <div class="caption-sub">
             <p>サイトを横断して探すことができます</p>
             </div>
+        </div>
+        <!-- Slider main container -->
+        <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <a href="{% url 'cup:about' %}" class="swiper-slide">
+                    <div class="hero-title">サイズの選び方</div>
+                    <img src="{% static 'swiper/top-image-1.jpg' %}" alt="">
+                </a>
+                <a href="{% url 'cup:privacy' %}" class="swiper-slide">
+                    <div class="hero-title">喫茶店やコーヒーショップのサイズ</div>
+                    <img src="{% static 'swiper/top-image-2.jpg' %}" alt="">
+                </a>
+                <a href="{% url 'cup:owner' %}" class="swiper-slide">
+                    <div class="hero-title">素材による違い</div>
+                    <img src="{% static 'swiper/top-image-3.jpg' %}" alt="">
+                </a>
+            </div>
+{#            <!-- If we need pagination -->#}
+{#            <div class="swiper-pagination"></div>#}
+{##}
+{#            <!-- If we need navigation buttons -->#}
+{#            <div class="swiper-button-prev"></div>#}
+{#            <div class="swiper-button-next"></div>#}
+{##}
+{#            <!-- If we need scrollbar -->#}
+{#            <div class="swiper-scrollbar"></div>#}
         </div>
         <div class="size">
             <div class="size-head head">
@@ -75,5 +106,6 @@
         </div>
     </div>
     {% include "js.html" %}
+    <script src="{% static 'main/swiper/swiper-bundle.min.js' %}"></script>
     <script src="{% static 'main/js/top.js' %}"></script>
 {% endblock %}
