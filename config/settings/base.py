@@ -179,3 +179,5 @@ MDEDITOR_CONFIGS = {
         'lineWrapping': True
     }
 }
+
+ADMIN_PATH = "AJIERjk0dgs0ert0304592kjdkfslgresoir"

@@ -146,3 +146,5 @@ MDEDITOR_CONFIGS = {
         'lineWrapping': True
     }
 }
+
+ADMIN_PATH = "admin"

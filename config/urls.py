@@ -20,7 +20,7 @@ from django.conf import settings
 from django.shortcuts import redirect
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path(settings.ADMIN_PATH + "/", admin.site.urls),
     path("cup/", include("main.urls")),
     path("article/", include("article.urls")),
     path(r'mdeditor/', include('mdeditor.urls')),
