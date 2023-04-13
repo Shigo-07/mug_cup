@@ -45,7 +45,10 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # third party
     "django_extensions",
+    "mdeditor",
+    # app
     "main",
+    "article",
 ]
 
 MIDDLEWARE = [
@@ -124,7 +127,6 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 MEDIA_URL = '/media/'
-# MEDIA_ROOT = Path.joinpath(BASE_DIR, "media")
 STATIC_ROOT = PARENT_DIR / 'site/public/static'
 MEDIA_ROOT = PARENT_DIR / 'site/public/media'
 
@@ -161,3 +163,20 @@ LOGGING = {
         },
     },
 }
+
+# mdeditor
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+MDEDITOR_CONFIGS = {
+    'default': {
+        'language': 'en',
+        # 'toolbar': ["undo", "redo", "image", "|",
+        #             "bold", "quote", "|",
+        #             "h1", "h2", "h3", "h5", "h6", "|",
+        #             "list-ul", "list-ol", "hr", "|",
+        #             "||", "preview", "watch", "fullscreen"],
+        'lineWrapping': True
+    }
+}
+
+ADMIN_PATH = "AJIERjk0dgs0ert0304592kjdkfslgresoir"

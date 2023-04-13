@@ -20,9 +20,13 @@ from django.conf import settings
 from django.shortcuts import redirect
 
 urlpatterns = [
-    # path("admin/", admin.site.urls),
+    path(settings.ADMIN_PATH + "/", admin.site.urls),
     path("cup/", include("main.urls")),
+    path("article/", include("article.urls")),
+    path(r'mdeditor/', include('mdeditor.urls')),
     path("", lambda request: redirect("cup/")),
 ]
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    # static files (images, css, javascript, etc.)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

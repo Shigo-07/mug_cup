@@ -131,3 +131,18 @@ const app1 = new Vue({
     },
 
 })
+
+const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    // direction: 'vertical',
+    loop: true,
+    grabCursor:true,
+    effect: "coverflow",
+    centeredSlides: true,
+    slidesPerView: 1,
+    speed: 1000,
+    autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+    }
+});
