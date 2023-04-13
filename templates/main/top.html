@@ -31,18 +31,18 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
-                <a href="{% url 'cup:about' %}" class="swiper-slide" target="_blank">
+                <a href="{% url 'article:article' 1 %}" class="swiper-slide" target="_blank">
                     <div class="hero-title">サイズの選び方</div>
                     <img src="{% static 'swiper/top-image-1.jpg' %}" alt="">
                 </a>
-                <a href="{% url 'cup:privacy' %}" class="swiper-slide" target="_blank">
-                    <div class="hero-title">喫茶店やコーヒーショップのサイズ</div>
+                <a href="{% url 'cup:about' %}" class="swiper-slide" target="_blank">
+                    <div class="hero-title">サイトについて</div>
                     <img src="{% static 'swiper/top-image-2.jpg' %}" alt="">
                 </a>
-                <a href="{% url 'cup:owner' %}" class="swiper-slide" target="_blank">
-                    <div class="hero-title">素材による違い</div>
-                    <img src="{% static 'swiper/top-image-3.jpg' %}" alt="">
-                </a>
+{#                <a href="{% url 'cup:owner' %}" class="swiper-slide" target="_blank">#}
+{#                    <div class="hero-title">素材による違い</div>#}
+{#                    <img src="{% static 'swiper/top-image-3.jpg' %}" alt="">#}
+{#                </a>#}
             </div>
 {#            <!-- If we need pagination -->#}
 {#            <div class="swiper-pagination"></div>#}
