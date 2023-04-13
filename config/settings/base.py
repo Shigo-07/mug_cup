@@ -170,11 +170,6 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 MDEDITOR_CONFIGS = {
     'default': {
         'language': 'en',
-        # 'toolbar': ["undo", "redo", "image", "|",
-        #             "bold", "quote", "|",
-        #             "h1", "h2", "h3", "h5", "h6", "|",
-        #             "list-ul", "list-ol", "hr", "|",
-        #             "||", "preview", "watch", "fullscreen"],
         'lineWrapping': True
     }
 }
