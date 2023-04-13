@@ -1,18 +1,19 @@
+$bottom: 3rem;
 .article {
   width: 90%;
   margin-right: auto;
   margin-left: auto;
-  margin-bottom: 3rem;
+  margin-bottom: $bottom;
+  line-height: 1.7;
+
   @media screen and (min-width: 768px) {
     max-width: 50%;
-    p {
-      font-size: 1.2rem;
-    }
+    font-size: 1.2rem;
     h2 {
       margin-top: 3em;
     }
     h3 {
-      margin-bottom: 3em;
+      margin-bottom: $bottom;
     }
     img {
       max-width: 70%;
@@ -23,7 +24,7 @@
     font-size: 1.7rem;
     font-weight: bold;
     margin-top: 2em;
-    margin-bottom: 3rem;
+    margin-bottom: $bottom;
   }
 
   h3 {
@@ -36,16 +37,16 @@
     margin-bottom: 2em;
     border-radius: 0.2rem;
   }
+
   h3::before {
     font-family: "Font Awesome 5 Free";
     content: "\f14a";
     font-weight: 900;
     position: absolute;
-    left : 0.5em; /*左端からのアイコンまでの距離*/
+    left: 0.5em; /*左端からのアイコンまでの距離*/
   }
 
   p {
-    line-height: 1.7;
     margin-bottom: 3em;
     margin-right: auto;
     width: 97%;
@@ -58,6 +59,50 @@
     margin-left: auto;
     margin-right: auto;
     border-radius: 0.5rem;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    margin-bottom: $bottom;
+
+    li {
+      position: relative;
+      padding: 0 0 0 2em;
+      margin: 0;
+
+      &::before {
+        position: absolute;
+        left: 0;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: '\f00c';
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: $bottom;
+    thead {
+      background-color: #E6E5E3
+    }
+    th {
+      padding: 0.5rem;
+      text-align: left;
+    }
+
+    td {
+      width: 0;
+      padding: 0.5rem;
+      text-align: left;
+    }
+
+
+
   }
 
 }

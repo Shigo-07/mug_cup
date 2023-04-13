@@ -10,8 +10,9 @@ from django.conf import settings
 import logging
 from django.core.files.base import ContentFile
 
-SEARCH_WORDS = ["マグカップ", "グラス", "コップ"]
-SEARCH_PAGES = 5
+# SEARCH_WORDS = ["マグカップ", "グラス", "コップ"]
+SEARCH_WORDS = ["マグカップ"]
+SEARCH_PAGES = 30
 YAHOO_ID = settings.YAHOO_ID
 AFFILIATE_ID = settings.AFFILIATE_ID_YAHOO
 URL_YAHOO_API = "https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch"
