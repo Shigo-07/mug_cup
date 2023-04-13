@@ -59,6 +59,7 @@ $bottom: 3rem;
     margin-left: auto;
     margin-right: auto;
     border-radius: 0.5rem;
+    margin-bottom: $bottom;
   }
 
   ul {
@@ -87,9 +88,11 @@ $bottom: 3rem;
     border-collapse: collapse;
     border-spacing: 0;
     margin-bottom: $bottom;
+
     thead {
       background-color: #E6E5E3
     }
+
     th {
       padding: 0.5rem;
       text-align: left;
@@ -100,7 +103,6 @@ $bottom: 3rem;
       padding: 0.5rem;
       text-align: left;
     }
-
 
 
   }
