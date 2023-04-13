@@ -7,6 +7,7 @@ import markdown
 
 class Article(models.Model):
     title = models.CharField(verbose_name="タイトル", max_length=100)
+    meta_description = models.CharField(verbose_name="ディスクリプション", max_length=150, blank=True, null=True)
     content = MDTextField()
 
     def __str__(self):

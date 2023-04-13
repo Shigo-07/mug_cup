@@ -1,97 +1,114 @@
 @charset "UTF-8";
 .article {
-  width: 90%;
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 3rem;
-  line-height: 1.7;
-}
-@media screen and (min-width: 768px) {
-  .article {
-    max-width: 50%;
-    font-size: 1.2rem;
-  }
-  .article h2 {
-    margin-top: 3em;
-  }
-  .article h3 {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
     margin-bottom: 3rem;
-  }
-  .article img {
-    max-width: 70%;
-  }
+    line-height: 1.7;
 }
+
+@media screen and (min-width: 768px) {
+    .article {
+        max-width: 50%;
+        font-size: 1.2rem;
+    }
+
+    .article h2 {
+        margin-top: 3em;
+    }
+
+    .article h3 {
+        margin-bottom: 3rem;
+    }
+
+    .article img {
+        max-width: 70%;
+        object-fit: cover;
+    }
+}
+
 .article h2 {
-  font-size: 1.7rem;
-  font-weight: bold;
-  margin-top: 2em;
-  margin-bottom: 3rem;
+    font-size: 1.7rem;
+    font-weight: bold;
+    margin-top: 2em;
+    margin-bottom: 3rem;
 }
+
 .article h3 {
-  position: relative;
-  font-weight: bold;
-  font-size: 1.2em;
-  background: #E6E5E3;
-  line-height: 1.4;
-  padding: 0.5em 0.5em 0.5em 1.8em;
-  margin-bottom: 2em;
-  border-radius: 0.2rem;
+    position: relative;
+    font-weight: bold;
+    font-size: 1.2em;
+    background: #E6E5E3;
+    line-height: 1.4;
+    padding: 0.5em 0.5em 0.5em 1.8em;
+    margin-bottom: 2em;
+    border-radius: 0.2rem;
 }
+
 .article h3::before {
-  font-family: "Font Awesome 5 Free";
-  content: "\f14a";
-  font-weight: 900;
-  position: absolute;
-  left: 0.5em; /*左端からのアイコンまでの距離*/
+    font-family: "Font Awesome 5 Free";
+    content: "\f14a";
+    font-weight: 900;
+    position: absolute;
+    left: 0.5em; /*左端からのアイコンまでの距離*/
 }
+
 .article p {
-  margin-bottom: 3em;
-  margin-right: auto;
-  width: 97%;
+    margin-bottom: 3em;
+    margin-right: auto;
+    width: 97%;
 }
+
 .article img {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 0.5rem;
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0.5rem;
 }
+
 .article ul {
-  padding: 0;
-  margin: 0;
-  font-weight: bold;
-  margin-bottom: 3rem;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    margin-bottom: 3rem;
 }
+
 .article ul li {
-  position: relative;
-  padding: 0 0 0 2em;
-  margin: 0;
+    position: relative;
+    padding: 0 0 0 2em;
+    margin: 0;
 }
+
 .article ul li::before {
-  position: absolute;
-  left: 0;
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  content: "\f00c";
+    position: absolute;
+    left: 0;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f00c";
 }
+
 .article table {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  margin-bottom: 3rem;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 3rem;
 }
+
 .article table thead {
-  background-color: #E6E5E3;
+    background-color: #E6E5E3;
 }
+
 .article table th {
-  padding: 0.5rem;
-  text-align: left;
+    padding: 0.5rem;
+    text-align: left;
 }
+
 .article table td {
-  width: 0;
-  padding: 0.5rem;
-  text-align: left;
+    width: 0;
+    padding: 0.5rem;
+    text-align: left;
 }
 
 /*# sourceMappingURL=article.css.map */
