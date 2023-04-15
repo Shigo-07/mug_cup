@@ -4,6 +4,7 @@ from dataclasses import dataclass
 
 PATTERN = "[0-9]+\.?[0-9]*ml|[0-9]+\.?[0-9]*cc|[0-9]+\.?[0-9]*l"
 
+
 @dataclass
 class Product:
     itemName: str
@@ -13,6 +14,7 @@ class Product:
     itemCode: str
     imageUrlRow: str
     seller: str
+    rank: int
 
     @property
     def capacity(self):
@@ -41,6 +43,7 @@ class Product:
             "image_url": self.imageUrlRow,
             "capacity": self.capacity,
             "seller": self.seller,
+            "rank": self.rank,
         }
 
     def _extractCapacity(self, words: str):

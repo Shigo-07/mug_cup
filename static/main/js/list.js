@@ -135,7 +135,7 @@ const app = new Vue({
                 {id: 1, sort: "capacity", label: "容量順"},
                 {id: 2, sort: "price", label: "値段順"},
             ],
-            sort: null,
+            sort: "おすすめ順",
         };
     },
     created() {

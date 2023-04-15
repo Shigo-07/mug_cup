@@ -10,7 +10,9 @@
       "item_code": "test_code",
       "image_url": "http://test.local/image",
       "image": "/media/test_for_dummy.png",
-      "capacity": 200
+      "capacity": 200,
+      "seller": "rakuten",
+      "rank": 1
     }
   },
   {
@@ -24,7 +26,9 @@
       "item_code": "test_code",
       "image_url": "http://test.local/image",
       "image": "/media/test_for_dummy.png",
-      "capacity": 200
+      "capacity": 200,
+      "seller": "rakuten",
+      "rank": 2
     }
   },
   {
@@ -38,7 +42,9 @@
       "item_code": "test_code",
       "image_url": "http://test.local/image",
       "image": "/media/test_for_dummy.png",
-      "capacity": 200
+      "capacity": 200,
+      "seller": "rakuten",
+      "rank": 3
     }
   },
   {
@@ -52,7 +58,9 @@
       "item_code": "test_code",
       "image_url": "http://test.local/image",
       "image": "/media/test_for_dummy.png",
-      "capacity": 200
+      "capacity": 200,
+      "seller": "rakuten",
+      "rank": 4
     }
   },
   {
@@ -66,7 +74,9 @@
       "item_code": "test_code",
       "image_url": "http://test.local/image",
       "image": "/media/test_for_dummy.png",
-      "capacity": 300
+      "capacity": 300,
+      "seller": "rakuten",
+      "rank": 5
     }
   },
   {
@@ -80,7 +90,9 @@
       "item_code": "test_code",
       "image_url": "http://test.local/image",
       "image": "/media/test_for_dummy.png",
-      "capacity": 300
+      "capacity": 300,
+      "seller": "rakuten",
+      "rank": 6
     }
   },
   {
@@ -94,7 +106,9 @@
       "item_code": "test_code",
       "image_url": "http://test.local/image",
       "image": "/media/test_for_dummy.png",
-      "capacity": 300
+      "capacity": 300,
+      "seller": "rakuten",
+      "rank": 7
     }
   },
   {
@@ -108,7 +122,9 @@
       "item_code": "test_code",
       "image_url": "http://test.local/image",
       "image": "/media/test_for_dummy.png",
-      "capacity": 300
+      "capacity": 300,
+      "seller": "yahoo",
+      "rank": 1
     }
   },
   {
@@ -122,7 +138,9 @@
       "item_code": "test_code",
       "image_url": "http://test.local/image",
       "image": "/media/test_for_dummy.png",
-      "capacity": 500
+      "capacity": 500,
+      "seller": "yahoo",
+      "rank": 2
     }
   },
   {
@@ -136,7 +154,9 @@
       "item_code": "test_code",
       "image_url": "http://test.local/image",
       "image": "/media/test_for_dummy.png",
-      "capacity": 500
+      "capacity": 500,
+      "seller": "yahoo",
+      "rank": 3
     }
   },
   {
@@ -150,7 +170,9 @@
       "item_code": "test_code",
       "image_url": "http://test.local/image",
       "image": "/media/test_for_dummy.png",
-      "capacity": 500
+      "capacity": 500,
+      "seller": "yahoo",
+      "rank": 4
     }
   },
   {
@@ -164,7 +186,9 @@
       "item_code": "test_code",
       "image_url": "http://test.local/image",
       "image": "/media/test_for_dummy.png",
-      "capacity": 500
+      "capacity": 500,
+      "seller": "yahoo",
+      "rank": 5
     }
   },
   {
@@ -178,7 +202,9 @@
       "item_code": "test_code",
       "image_url": "http://test.local/image",
       "image": "/media/test_for_dummy.png",
-      "capacity": 200
+      "capacity": 200,
+      "seller": "yahoo",
+      "rank": 6
     }
   },
   {
@@ -192,7 +218,9 @@
       "item_code": "test_code",
       "image_url": "http://test.local/image",
       "image": "/media/test_for_dummy.png",
-      "capacity": 200
+      "capacity": 200,
+      "seller": "yahoo",
+      "rank": 7
     }
   }
 ]

@@ -11,7 +11,7 @@ import logging
 from django.core.files.base import ContentFile
 
 SEARCH_WORDS = ["マグカップ", "グラス", "コップ"]
-SEARCH_PAGES = 30
+SEARCH_PAGES = 10
 YAHOO_ID = settings.YAHOO_ID
 AFFILIATE_ID = settings.AFFILIATE_ID_YAHOO
 URL_YAHOO_API = "https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch"
@@ -44,6 +44,8 @@ class YahooProduct(Product):
 def fetchYahooData(keywords: list, pages: int):
     logger = logging.Logger("django")
     for keyword in keywords:
+        # 商品順位を設定するための変数を用意
+        rank = 1
         for i in range(pages):
             # API制限にかからないよう1眇以上リクエストを待つ
             time.sleep(1.5)
@@ -63,7 +65,7 @@ def fetchYahooData(keywords: list, pages: int):
             response = requests.get(URL_YAHOO_API, params=params)
 
             if response.status_code != 200:
-                logger.error(f"{params['start']}から{params['results']}件の取得を失敗しました。")
+                logger.error(f"yahoo:取得ワード「{params['query']}」の{params['start']}から{params['results']}件の取得を失敗しました。")
                 continue
 
             json_data = response.json()
@@ -71,7 +73,7 @@ def fetchYahooData(keywords: list, pages: int):
                 yahoo_product = YahooProduct(itemName=product["name"], itemPrice=product["price"],
                                              itemCaption=product["description"], affiliateUrl=product["url"],
                                              itemCode=product["code"], imageUrlRow=product["exImage"]["url"],
-                                             seller="yahoo")
+                                             seller="yahoo", rank=rank)
 
                 if yahoo_product.check_none_data():
                     continue
@@ -88,6 +90,8 @@ def fetchYahooData(keywords: list, pages: int):
                     # 既に作成済みであれば既存の画像を削除する
                     model_item.image.delete()
                 model_item.image.save(f'{yahoo_product.itemCode}.jpg', image, save=True)
+                # 順位を + 1
+                rank += 1
 
 
 class Command(BaseCommand):
