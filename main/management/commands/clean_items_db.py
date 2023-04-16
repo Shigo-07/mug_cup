@@ -6,6 +6,9 @@ REMOVE_WORD_LIST = [
     "エプソン",
     "カートリッジ",
     "ふるさと納税",
+    "名前入",
+    "用ふた",
+    "写真入",
 ]
 
 def remove_item_match_word():

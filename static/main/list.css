@@ -56,6 +56,32 @@
     text-align: center;
 }
 
+.list-info a.rakuten-url::before {
+    content: "R";
+    font-weight: bold;
+    line-height: 1.3rem;
+    display: inline-block;
+    width: 1.3rem;
+    height: 1.3rem;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+    border:solid 1px white ;
+}
+
+.list-info a.yahoo-url::before {
+    content: "\f19e";
+    font-family: "Font Awesome 5 Brands";
+    font-weight: 300;
+    line-height: 1.2rem;
+    display: inline-block;
+    width: 1.3rem;
+    height: 1.3rem;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+    border:solid 1px white ;
+}
+
+
 .list-image {
     display: flex;
     justify-content: center;
@@ -242,7 +268,7 @@
     margin-right: auto;
 }
 
-.modal-button  {
+.modal-button {
     font-size: 1.3rem;
     background: #E6E5E3;
     width: 50%;

@@ -146,6 +146,8 @@ class CupListView(ListView):
         if self.request.GET.get("sort"):
             sort_key = self.request.GET.get("sort")
             query = query.order_by(sort_key)
+        else:
+            query = query.order_by("rank", "item_code")
         return query
 
     def get_context_data(self, **kwargs):
@@ -156,14 +158,13 @@ class CupListView(ListView):
         return context
 
 
-# class TestView(TemplateView):
-#     template_name = "404.html"
-
 class AboutView(TemplateView):
     template_name = "main/about.html"
 
+
 class OwnerView(TemplateView):
     template_name = "main/owner.html"
+
 
 class PrivacyView(TemplateView):
     template_name = "main/privacy.html"

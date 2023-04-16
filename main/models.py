@@ -19,6 +19,7 @@ class Item(models.Model):
     image = models.ImageField(verbose_name="商品画像", upload_to="item_images/")
     capacity = models.BigIntegerField(verbose_name="容量", default=0)
     seller = models.CharField(verbose_name="販売サイト", max_length=100, validators=[validate_value])
+    rank = models.BigIntegerField(verbose_name="順位", default=0)
 
     def __str__(self):
         return self.name

@@ -61,7 +61,13 @@
                             <p class="list-title">{{ item.name |truncatechars:45 }}</p>
                             <p class="capacity">容量 <span>{{ item.capacity }}ml</span></p>
                             <p class="price">値段 <span>{{ item.price }}円</span></p>
-                            <a href="{{ item.item_url }}" target="_blank" rel="noopener noreferrer">商品はこちら</a>
+                            {% if item.seller == "rakuten" %}
+                                <a href="{{ item.item_url }}" target="_blank" rel="noopener noreferrer" class="rakuten-url">商品はこちら</a>
+                            {% elif item.seller == "yahoo" %}
+                                <a href="{{ item.item_url }}" target="_blank" rel="noopener noreferrer" class="yahoo-url">商品はこちら</a>
+                            {% else %}
+                                <a href="{{ item.item_url }}" target="_blank" rel="noopener noreferrer">商品はこちら</a>
+                            {% endif %}
                         </div>
                     </div>
                 {% endfor %}
