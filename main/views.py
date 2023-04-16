@@ -147,7 +147,7 @@ class CupListView(ListView):
             sort_key = self.request.GET.get("sort")
             query = query.order_by(sort_key)
         else:
-            query = query.order_by("rank")
+            query = query.order_by("rank", "item_code")
         return query
 
     def get_context_data(self, **kwargs):
